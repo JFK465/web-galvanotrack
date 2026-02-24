@@ -1,0 +1,26 @@
+export const siteConfig = {
+  name: "GalvanoTrack",
+  url: "https://galvanotrack.de",
+  appUrl: "https://app.galvanotrack.de",
+  description:
+    "Die SaaS-Loesung fuer Galvanik-Betriebe: Digitaler Laufzettel mit QR-Code, ISO-konforme Dokumentation und Automotive-Compliance (IATF 16949).",
+  shortDescription: "Digitaler Laufzettel fuer Galvanik & Oberflaechentechnik",
+  keywords: [
+    "Galvanik Software",
+    "digitaler Laufzettel",
+    "Rueckverfolgbarkeit",
+    "Oberflaechentechnik",
+    "Lohnbeschichter",
+    "ISO Rueckverfolgbarkeit",
+    "Automotive",
+    "IATF 16949",
+    "QR-Code Galvanik",
+    "Batch-Verfolgung",
+    "Galvanik Dokumentation",
+  ],
+  authors: [{ name: "GalvanoTrack", url: "https://galvanotrack.de" }],
+  creator: "GalvanoTrack",
+  ogImage: "https://galvanotrack.de/og.png",
+  locale: "de_DE",
+  language: "de",
+};

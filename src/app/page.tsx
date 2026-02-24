@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
 import {
@@ -66,7 +67,9 @@ function Navigation() {
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <QrCode className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className="font-bold text-xl tracking-tight">GalvanoTrack</span>
+            <span className="font-bold text-xl tracking-tight">
+              GalvanoTrack
+            </span>
           </a>
 
           {/* Desktop Navigation */}
@@ -171,8 +174,8 @@ function HeroSection() {
             className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
           >
             Lückenlose Rückverfolgbarkeit Ihrer Werkstücke. QR-Code basierte
-            Auftragsverfolgung, ISO-konforme Dokumentation und Automotive-Compliance
-            – ohne teures ERP.
+            Auftragsverfolgung, ISO-konforme Dokumentation und
+            Automotive-Compliance – ohne teures ERP.
           </motion.p>
 
           <motion.div
@@ -183,7 +186,11 @@ function HeroSection() {
               Kostenlose Demo starten
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-            <Button variant="outline" size="lg" className="w-full sm:w-auto text-lg px-8">
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full sm:w-auto text-lg px-8"
+            >
               Live-Präsentation
             </Button>
           </motion.div>
@@ -207,15 +214,14 @@ function HeroSection() {
           </motion.div>
 
           {/* Hero Image/Mockup */}
-          <motion.div
-            variants={fadeInUp}
-            className="mt-16 relative"
-          >
+          <motion.div variants={fadeInUp} className="mt-16 relative">
             <div className="relative rounded-xl border border-border bg-card/50 backdrop-blur p-2 shadow-2xl">
               <div className="rounded-lg bg-zinc-900 aspect-video flex items-center justify-center">
                 <div className="text-center">
                   <QrCode className="w-24 h-24 mx-auto mb-4 text-primary opacity-50" />
-                  <p className="text-muted-foreground">QR-Code Scan Interface</p>
+                  <p className="text-muted-foreground">
+                    QR-Code Scan Interface
+                  </p>
                   <p className="text-sm text-muted-foreground/70 mt-2">
                     Werkstück-Nr: GT-2024-00142
                   </p>
@@ -269,7 +275,7 @@ function ProblemSection() {
             variants={fadeInUp}
             className="text-3xl sm:text-4xl font-bold mt-2 mb-4"
           >
-           纸质 Laufzettel gehören der Vergangenheit an
+            纸质 Laufzettel gehören der Vergangenheit an
           </motion.h2>
           <motion.p
             variants={fadeInUp}
@@ -526,7 +532,9 @@ function WarumWirSection() {
             viewport={{ once: true }}
           >
             <motion.div variants={fadeInUp}>
-              <span className="text-primary font-medium">Warum GalvanoTrack</span>
+              <span className="text-primary font-medium">
+                Warum GalvanoTrack
+              </span>
             </motion.div>
             <motion.h2
               variants={fadeInUp}
@@ -831,9 +839,9 @@ function CTASection() {
               Bereit für digitale Rückverfolgbarkeit?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Vereinbaren Sie eine kostenlose Demo. Wir zeigen Ihnen GalvanoTrack
-              in einem 30-minütigen Live-Termin – unverbindlich und ohne
-              Verpflichtung.
+              Vereinbaren Sie eine kostenlose Demo. Wir zeigen Ihnen
+              GalvanoTrack in einem 30-minütigen Live-Termin – unverbindlich und
+              ohne Verpflichtung.
             </p>
 
             <div className="space-y-4">
@@ -892,7 +900,11 @@ function CTASection() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">E-Mail</Label>
-                    <Input id="email" type="email" placeholder="ihre@email.de" />
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="ihre@email.de"
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message">Nachricht</Label>
@@ -930,24 +942,48 @@ function Footer() {
               <span className="font-bold text-xl">GalvanoTrack</span>
             </a>
             <p className="text-muted-foreground text-sm max-w-xs">
-              Der digitale Laufzettel für Galvanik & Oberflächentechnik. Einfach,
-              schnell, ISO-konform.
+              Der digitale Laufzettel für Galvanik & Oberflächentechnik.
+              Einfach, schnell, ISO-konform.
             </p>
           </div>
           <div>
             <h4 className="font-semibold mb-4">Produkt</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#features" className="hover:text-foreground">Features</a></li>
-              <li><a href="#preise" className="hover:text-foreground">Preise</a></li>
-              <li><a href="#faq" className="hover:text-foreground">FAQ</a></li>
+              <li>
+                <a href="#features" className="hover:text-foreground">
+                  Features
+                </a>
+              </li>
+              <li>
+                <a href="#preise" className="hover:text-foreground">
+                  Preise
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="hover:text-foreground">
+                  FAQ
+                </a>
+              </li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-4">Rechtliches</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground">Impressum</a></li>
-              <li><a href="#" className="hover:text-foreground">Datenschutz</a></li>
-              <li><a href="#" className="hover:text-foreground">AGB</a></li>
+              <li>
+                <a href="#" className="hover:text-foreground">
+                  Impressum
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-foreground">
+                  Datenschutz
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-foreground">
+                  AGB
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -955,9 +991,7 @@ function Footer() {
           <p className="text-sm text-muted-foreground">
             © 2024 GalvanoTrack. Alle Rechte vorbehalten.
           </p>
-          <p className="text-sm text-muted-foreground">
-            Made in Germany 🇩🇪
-          </p>
+          <p className="text-sm text-muted-foreground">Made in Germany 🇩🇪</p>
         </div>
       </div>
     </footer>

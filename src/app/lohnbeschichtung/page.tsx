@@ -1,17 +1,48 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { QrCode, ScanLine, FileText, CheckCircle2, ArrowRight, Shield, Clock, Zap, Users, Truck, Building2 } from "lucide-react";
+import {
+  QrCode,
+  ScanLine,
+  FileText,
+  CheckCircle2,
+  ArrowRight,
+  Shield,
+  Clock,
+  Zap,
+  Users,
+  Truck,
+  Building2,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
   title: "Lohnbeschichtung Software | Digitale Lösung für Lohnbeschichter",
-  description: "GalvanoTrack - Die Software für Lohnbeschichtung. QR-Code Verwaltung, ISO-konforme Dokumentation und Rückverfolgbarkeit für Lohnbeschichter. 14 Tage kostenlos testen.",
-  keywords: ["Lohnbeschichtung Software", "Lohnbeschichter", "Lohnbeschichtung Digitalisierung", "Galvanik Lohnfertiger", "Lohnbeschichtung Rückverfolgbarkeit"],
+  description:
+    "Die Software für Lohnbeschichtung. QR-Code Verwaltung, ISO-konforme Dokumentation und Rückverfolgbarkeit für Lohnbeschichter. 14 Tage kostenlos testen.",
+  keywords: [
+    "Lohnbeschichtung Software",
+    "Lohnbeschichter",
+    "Lohnbeschichtung Digitalisierung",
+    "Galvanik Lohnfertiger",
+    "Lohnbeschichtung Rückverfolgbarkeit",
+  ],
+  alternates: {
+    canonical: `${siteConfig.url}/lohnbeschichtung`,
+  },
   openGraph: {
     title: "Lohnbeschichtung Software | Digitale Lösung für Lohnbeschichter",
-    description: "Die SaaS-Lösung für Lohnbeschichter. QR-Code basierte Auftragsverfolgung, ISO-konforme Dokumentation.",
+    description:
+      "Die SaaS-Lösung für Lohnbeschichter. QR-Code basierte Auftragsverfolgung, ISO-konforme Dokumentation.",
+    url: `${siteConfig.url}/lohnbeschichtung`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lohnbeschichtung Software | Digitale Lösung",
+    description:
+      "Die Software für Lohnbeschichtung mit QR-Code Verwaltung und ISO-konformer Dokumentation.",
   },
 };
 
@@ -36,12 +67,15 @@ export default function LohnbesichtungPage() {
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
                 Lohnbeschichtung Software für{" "}
-                <span className="text-gradient">ISO-konforme Dokumentation</span>
+                <span className="text-gradient">
+                  ISO-konforme Dokumentation
+                </span>
               </h1>
 
               <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl">
-                Die digitale Lösung für Lohnbeschichter. Erfüllen Sie die strengen Anforderungen
-                Ihrer Kunden mit lückenloser Rückverfolgbarkeit und ISO-konformer Dokumentation.
+                Die digitale Lösung für Lohnbeschichter. Erfüllen Sie die
+                strengen Anforderungen Ihrer Kunden mit lückenloser
+                Rückverfolgbarkeit und ISO-konformer Dokumentation.
               </p>
 
               <div className="flex flex-col sm:flex-row items-start gap-4 mb-12">
@@ -83,7 +117,8 @@ export default function LohnbesichtungPage() {
                 Warum Lohnbeschichter GalvanoTrack nutzen
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Erfüllen Sie die hohen Anforderungen Ihrer Kunden aus Automotive und Industrie.
+                Erfüllen Sie die hohen Anforderungen Ihrer Kunden aus Automotive
+                und Industrie.
               </p>
             </div>
 
@@ -92,18 +127,21 @@ export default function LohnbesichtungPage() {
                 {
                   icon: FileText,
                   title: "Kundendokumentation",
-                  description: "Erstellen Sie automatisch alle erforderlichen Dokumentationen für Ihre Kunden. Chargen-Nachweise, Badprotokolle, Analysen."
+                  description:
+                    "Erstellen Sie automatisch alle erforderlichen Dokumentationen für Ihre Kunden. Chargen-Nachweise, Badprotokolle, Analysen.",
                 },
                 {
                   icon: Shield,
                   title: "Audit-Sicher",
-                  description: "Alle Daten für ISO 9001 und IATF 16949 Audits ready. Keine Nacharbeiten mehr vor Kundenaudits."
+                  description:
+                    "Alle Daten für ISO 9001 und IATF 16949 Audits ready. Keine Nacharbeiten mehr vor Kundenaudits.",
                 },
                 {
                   icon: Clock,
                   title: "Zeitersparnis",
-                  description: "Keine manuellen Listen mehr. Alle Daten werden automatisch erfasst und sind jederzeit abrufbar."
-                }
+                  description:
+                    "Keine manuellen Listen mehr. Alle Daten werden automatisch erfasst und sind jederzeit abrufbar.",
+                },
               ].map((item, index) => (
                 <Card key={index} className="card-metallic h-full">
                   <CardHeader>
@@ -125,7 +163,9 @@ export default function LohnbesichtungPage() {
         <section className="py-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <span className="text-primary font-medium">So funktioniert's</span>
+              <span className="text-primary font-medium">
+                So funktioniert's
+              </span>
               <h2 className="text-3xl sm:text-4xl font-bold mt-2 mb-4">
                 Digitaler Workflow für Lohnbeschichtung
               </h2>
@@ -133,13 +173,34 @@ export default function LohnbesichtungPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { number: "01", title: "Auftrag erfassen", description: "Kundendaten, Anforderungen und Spezifikationen digital erfassen." },
-                { number: "02", title: "Werkstücke kennzeichnen", description: "QR-Codes für jede Charge oder jedes Werkstück generieren." },
-                { number: "03", title: "Prozess dokumentieren", description: "Alle Parameter automatisch erfassen: Bad, Zeit, Temperatur, Mitarbeiter." },
-                { number: "04", title: "Dokumentation erstellen", description: "Mit einem Klick alle Kunden-Docs exportieren." }
+                {
+                  number: "01",
+                  title: "Auftrag erfassen",
+                  description:
+                    "Kundendaten, Anforderungen und Spezifikationen digital erfassen.",
+                },
+                {
+                  number: "02",
+                  title: "Werkstücke kennzeichnen",
+                  description:
+                    "QR-Codes für jede Charge oder jedes Werkstück generieren.",
+                },
+                {
+                  number: "03",
+                  title: "Prozess dokumentieren",
+                  description:
+                    "Alle Parameter automatisch erfassen: Bad, Zeit, Temperatur, Mitarbeiter.",
+                },
+                {
+                  number: "04",
+                  title: "Dokumentation erstellen",
+                  description: "Mit einem Klick alle Kunden-Docs exportieren.",
+                },
               ].map((step, index) => (
                 <div key={index} className="relative">
-                  <div className="text-6xl font-bold text-primary/20 mb-4">{step.number}</div>
+                  <div className="text-6xl font-bold text-primary/20 mb-4">
+                    {step.number}
+                  </div>
                   <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                   <p className="text-muted-foreground">{step.description}</p>
                   {index < 3 && (
@@ -163,14 +224,45 @@ export default function LohnbesichtungPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { icon: QrCode, title: "QR-Code Verwaltung", description: "Einzigartige QR-Codes für jede Charge. Bulk-Druck, individuelle Labels." },
-                { icon: ScanLine, title: "Scan-Interface", description: "Scannen Sie Bad-Nummern, Chargen und Stationen in Echtzeit." },
-                { icon: FileText, title: "Kundendokumente", description: "Automatische Erstellung von Chargenprotokollen und Analysenberichten." },
-                { icon: Truck, title: "Lieferanten-Verfolgung", description: "Verfolgen Sie Werkstücke vom Eingang bis zum Versand." },
-                { icon: Users, title: "Mitarbeiter-Doku", description: "Wer hat welche Bearbeitung durchgeführt?" },
-                { icon: Shield, title: "Audit-Ready", description: "Alle Daten für ISO 9001 und IATF 16949 ready." }
+                {
+                  icon: QrCode,
+                  title: "QR-Code Verwaltung",
+                  description:
+                    "Einzigartige QR-Codes für jede Charge. Bulk-Druck, individuelle Labels.",
+                },
+                {
+                  icon: ScanLine,
+                  title: "Scan-Interface",
+                  description:
+                    "Scannen Sie Bad-Nummern, Chargen und Stationen in Echtzeit.",
+                },
+                {
+                  icon: FileText,
+                  title: "Kundendokumente",
+                  description:
+                    "Automatische Erstellung von Chargenprotokollen und Analysenberichten.",
+                },
+                {
+                  icon: Truck,
+                  title: "Lieferanten-Verfolgung",
+                  description:
+                    "Verfolgen Sie Werkstücke vom Eingang bis zum Versand.",
+                },
+                {
+                  icon: Users,
+                  title: "Mitarbeiter-Doku",
+                  description: "Wer hat welche Bearbeitung durchgeführt?",
+                },
+                {
+                  icon: Shield,
+                  title: "Audit-Ready",
+                  description: "Alle Daten für ISO 9001 und IATF 16949 ready.",
+                },
               ].map((feature, index) => (
-                <Card key={index} className="card-metallic h-full hover:border-primary/50 transition-colors">
+                <Card
+                  key={index}
+                  className="card-metallic h-full hover:border-primary/50 transition-colors"
+                >
                   <CardHeader>
                     <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                       <feature.icon className="w-6 h-6 text-primary" />
@@ -178,7 +270,9 @@ export default function LohnbesichtungPage() {
                     <CardTitle className="text-xl">{feature.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">{feature.description}</p>
+                    <p className="text-muted-foreground">
+                      {feature.description}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -197,9 +291,15 @@ export default function LohnbesichtungPage() {
             <div className="grid md:grid-cols-4 gap-4">
               {[
                 { href: "/galvanik", label: "Galvanik Software" },
-                { href: "/oberflaechenveredlung", label: "Oberflächenveredlung" },
+                {
+                  href: "/oberflaechenveredlung",
+                  label: "Oberflächenveredlung",
+                },
                 { href: "/iso-9001-galvanik", label: "ISO 9001 Galvanik" },
-                { href: "/digitaler-laufzettel", label: "Digitaler Laufzettel" }
+                {
+                  href: "/digitaler-laufzettel",
+                  label: "Digitaler Laufzettel",
+                },
               ].map((link, index) => (
                 <Link key={index} href={link.href}>
                   <Card className="card-metallic h-full hover:border-primary/50 transition-colors cursor-pointer">
@@ -224,8 +324,8 @@ export default function LohnbesichtungPage() {
                   Bereit für ISO-konforme Dokumentation?
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  Vereinbaren Sie eine kostenlose Demo. Wir zeigen Ihnen GalvanoTrack
-                  speziell für Lohnbeschichtung.
+                  Vereinbaren Sie eine kostenlose Demo. Wir zeigen Ihnen
+                  GalvanoTrack speziell für Lohnbeschichtung.
                 </p>
 
                 <div className="space-y-4">
@@ -235,7 +335,9 @@ export default function LohnbesichtungPage() {
                     </div>
                     <div>
                       <p className="font-medium">Kostenlose Demo</p>
-                      <p className="text-sm text-muted-foreground">30 Minuten Live-Präsentation</p>
+                      <p className="text-sm text-muted-foreground">
+                        30 Minuten Live-Präsentation
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -244,7 +346,9 @@ export default function LohnbesichtungPage() {
                     </div>
                     <div>
                       <p className="font-medium">14 Tage kostenlos testen</p>
-                      <p className="text-sm text-muted-foreground">Voller Funktionsumfang</p>
+                      <p className="text-sm text-muted-foreground">
+                        Voller Funktionsumfang
+                      </p>
                     </div>
                   </div>
                 </div>

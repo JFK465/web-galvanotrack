@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { siteConfig } from "@/lib/seo-config";
+import { OrganizationSchema, WebSiteSchema, SoftwareApplicationSchema } from "@/components/seo/StructuredData";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -15,30 +17,50 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GalvanoTrack | Digitaler Laufzettel für Galvanik & Oberflächentechnik",
-  description: "Die SaaS-Lösung für lückenlose Rückverfolgbarkeit in der Galvanik. QR-Code basierte Auftragsverfolgung, ISO-konforme Dokumentation und Automotive-Compliance.",
-  keywords: ["Galvanik Software", "digitaler Laufzettel", "Rückverfolgbarkeit", "Oberflächentechnik", "Lohnbeschichter", "ISO Rückverfolgbarkeit", "Automotive", "IATF 16949"],
-  authors: [{ name: "GalvanoTrack" }],
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.name} – Digitaler Laufzettel für Galvanik & Oberflaechentechnik`,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: siteConfig.authors,
+  creator: siteConfig.creator,
   openGraph: {
-    title: "GalvanoTrack | Digitaler Laufzettel für Galvanik & Oberflächentechnik",
-    description: "Die SaaS-Lösung für lückenlose Rückverfolgbarkeit in der Galvanik. QR-Code basierte Auftragsverfolgung, ISO-konforme Dokumentation.",
     type: "website",
-    locale: "de_DE",
-    alternateLocale: "en_US",
+    locale: siteConfig.locale,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: `${siteConfig.name} – Digitaler Laufzettel für Galvanik`,
+    description: siteConfig.description,
+    images: [{
+      url: siteConfig.ogImage,
+      width: 1200,
+      height: 630,
+      alt: siteConfig.name,
+    }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "GalvanoTrack | Digitaler Laufzettel für Galvanik",
-    description: "Die SaaS-Lösung für lückenlose Rückverfolgbarkeit in der Galvanik.",
+    title: `${siteConfig.name} – Digitaler Laufzettel für Galvanik`,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   alternates: {
+    canonical: siteConfig.url,
     languages: {
       "de-DE": "/",
-      "en-US": "/en",
     },
   },
 };
@@ -53,6 +75,9 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${jetbrainsMono.variable} font-sans antialiased bg-zinc-950 text-zinc-100`}
       >
+        <OrganizationSchema />
+        <WebSiteSchema />
+        <SoftwareApplicationSchema />
         {children}
       </body>
     </html>

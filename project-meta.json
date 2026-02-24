@@ -1,0 +1,43 @@
+{
+  "projektName": "galvanotrack",
+  "displayName": "GalvanoTrack",
+  "domain": "galvanotrack.de",
+  "appDomain": "app.galvanotrack.de",
+  "zielgruppe": "Galvanik-Betriebe, Lohnbeschichter, Oberflächentechnik-Unternehmen",
+  "problem": "Manuelle Papier-Laufzettel, fehlende Rückverfolgbarkeit, Zeitintensive Nachverfolgung, ISO-Audit-Probleme",
+  "loesung": "Digitaler Laufzettel mit QR-Code, ISO-konforme Dokumentation, Automotive-Compliance (IATF 16949)",
+  "branche": "Galvanik, Oberflächentechnik, Automobilzulieferer",
+  "keywords": ["Galvanik Software", "digitaler Laufzettel", "Rückverfolgbarkeit", "Oberflächentechnik", "Lohnbeschichter", "ISO Rückverfolgbarkeit", "Automotive", "IATF 16949"],
+  "seoConfig": false,
+  "struktur": {
+    "homepage": true,
+    "branchen": true,
+    "tools": true,
+    "blog": false,
+    "wissen": false,
+    "megaMenu": false,
+    "sitemap": false,
+    "robots": false
+  },
+  "seiten": [
+    "/ (Homepage)",
+    "/galvanik",
+    "/lohnbeschichtung",
+    "/oberflaechenveredlung",
+    "/iso-9001-galvanik",
+    "/iatf-16949",
+    "/digitaler-laufzettel",
+    "/qr-code-galvanik",
+    "/preise",
+    "/kontakt",
+    "/elektroplattierung",
+    "/chrom-nickel",
+    "/zink-nickel",
+    "/iso-ruckverfolgbarkeit",
+    "/automotive-galvanik",
+    "/batch-verfolgung",
+    "/demo",
+    "/schadteile-verfolgung",
+    "/pulverbeschichtung"
+  ]
+}
