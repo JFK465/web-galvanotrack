@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { QrCode, Mail, Check, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Mail, Check, ArrowRight } from "lucide-react";
 
 interface FooterColumn {
   heading: string;
@@ -53,7 +54,9 @@ const footerColumns: FooterColumn[] = [
 
 function NewsletterForm() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,7 +76,9 @@ function NewsletterForm() {
     return (
       <div className="bg-green-900/30 border border-green-800 rounded-lg p-4 text-center">
         <Check className="w-5 h-5 text-green-500 mx-auto mb-2" />
-        <p className="text-sm text-green-400">Vielen Dank fuer Ihre Anmeldung!</p>
+        <p className="text-sm text-green-400">
+          Vielen Dank fuer Ihre Anmeldung!
+        </p>
       </div>
     );
   }
@@ -111,7 +116,10 @@ function NewsletterForm() {
 
 export default function Footer() {
   return (
-    <footer className="bg-zinc-900 text-zinc-300" aria-labelledby="footer-heading">
+    <footer
+      className="bg-zinc-900 text-zinc-300"
+      aria-labelledby="footer-heading"
+    >
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -125,7 +133,8 @@ export default function Footer() {
                 Newsletter: Galvanik-Infos
               </h3>
               <p className="text-sm text-zinc-400">
-                Erhalten Sie regelmaessig Updates zu ISO-Compliance, Digitalisierung und Best Practices.
+                Erhalten Sie regelmaessig Updates zu ISO-Compliance,
+                Digitalisierung und Best Practices.
               </p>
             </div>
             <div className="md:w-96">
@@ -141,14 +150,18 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <QrCode className="w-5 h-5 text-white" />
-              </div>
+              <Image
+                src="/logo.svg"
+                alt="GalvanoTrack Logo"
+                width={32}
+                height={32}
+                className="w-8 h-8"
+              />
               <span className="font-bold text-xl text-white">GalvanoTrack</span>
             </Link>
             <p className="text-sm text-zinc-400 leading-relaxed mb-4">
-              Die SaaS-Loesung fuer Galvanik-Betriebe: Digitaler Laufzettel mit QR-Code,
-              ISO-konforme Dokumentation und Automotive-Compliance.
+              Die SaaS-Loesung fuer Galvanik-Betriebe: Digitaler Laufzettel mit
+              QR-Code, ISO-konforme Dokumentation und Automotive-Compliance.
             </p>
             <div className="flex items-center gap-2 text-xs text-zinc-500">
               <span>Made in Germany</span>
@@ -185,23 +198,36 @@ export default function Footer() {
       <div className="border-t border-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-zinc-500 order-2 sm:order-1">
-            &copy; {new Date().getFullYear()} GalvanoTrack. Alle Rechte vorbehalten.
+            &copy; {new Date().getFullYear()} GalvanoTrack. Alle Rechte
+            vorbehalten.
           </p>
 
           <nav
             aria-label="Rechtliche Links"
             className="flex flex-wrap items-center gap-x-6 gap-y-2 order-1 sm:order-2"
           >
-            <Link href="/impressum" className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors">
+            <Link
+              href="/impressum"
+              className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+            >
               Impressum
             </Link>
-            <Link href="/datenschutz" className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors">
+            <Link
+              href="/datenschutz"
+              className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+            >
               Datenschutz
             </Link>
-            <Link href="/agb" className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors">
+            <Link
+              href="/agb"
+              className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+            >
               AGB
             </Link>
-            <Link href="/kontakt" className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors">
+            <Link
+              href="/kontakt"
+              className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+            >
               Kontakt
             </Link>
           </nav>

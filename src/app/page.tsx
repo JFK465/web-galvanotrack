@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
 import {
@@ -213,20 +214,17 @@ function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Hero Image/Mockup */}
+          {/* Hero Image */}
           <motion.div variants={fadeInUp} className="mt-16 relative">
             <div className="relative rounded-xl border border-border bg-card/50 backdrop-blur p-2 shadow-2xl">
-              <div className="rounded-lg bg-zinc-900 aspect-video flex items-center justify-center">
-                <div className="text-center">
-                  <QrCode className="w-24 h-24 mx-auto mb-4 text-primary opacity-50" />
-                  <p className="text-muted-foreground">
-                    QR-Code Scan Interface
-                  </p>
-                  <p className="text-sm text-muted-foreground/70 mt-2">
-                    Werkstück-Nr: GT-2024-00142
-                  </p>
-                </div>
-              </div>
+              <Image
+                src="/images/hero.png"
+                alt="GalvanoTrack Dashboard – Digitaler Laufzettel mit QR-Code für Galvanik-Betriebe"
+                width={1200}
+                height={675}
+                className="rounded-lg w-full h-auto"
+                priority
+              />
             </div>
           </motion.div>
         </motion.div>
@@ -408,6 +406,7 @@ function FeaturesSection() {
       title: "QR-Code Verwaltung",
       description:
         "Einzigartige QR-Codes für jedes Werkstück. Bulk-Druck, individuelle Labels – alles möglich.",
+      image: "/images/feature-1.png",
     },
     {
       icon: ScanLine,
@@ -420,6 +419,7 @@ function FeaturesSection() {
       title: "Dokumentation",
       description:
         "ISO-konforme Aufzeichnungen. Badzusammensetzung, Temperatur, Zeiten – alles automatisch protokolliert.",
+      image: "/images/feature-2.png",
     },
     {
       icon: Truck,
@@ -438,6 +438,7 @@ function FeaturesSection() {
       title: "Audit-Ready",
       description:
         "Alle Daten für IATF 16949, ISO 9001 und Kunden-Audits ready. Exportieren Sie Berichte mit einem Klick.",
+      image: "/images/feature-3.png",
     },
   ];
 
@@ -479,7 +480,17 @@ function FeaturesSection() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="card-metallic h-full hover:border-primary/50 transition-colors">
+              <Card className="card-metallic h-full hover:border-primary/50 transition-colors overflow-hidden">
+                {feature.image && (
+                  <div className="relative w-full aspect-[4/3] bg-zinc-800/50">
+                    <Image
+                      src={feature.image}
+                      alt={feature.title}
+                      fill
+                      className="object-contain p-4"
+                    />
+                  </div>
+                )}
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                     <feature.icon className="w-6 h-6 text-primary" />

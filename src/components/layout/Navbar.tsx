@@ -2,8 +2,9 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { QrCode, Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface NavDropdown {
@@ -15,7 +16,11 @@ const navDropdowns: NavDropdown[] = [
   {
     label: "Produkt",
     items: [
-      { name: "Funktionen", href: "/funktionen", description: "Alle Features im Ueberblick" },
+      {
+        name: "Funktionen",
+        href: "/funktionen",
+        description: "Alle Features im Ueberblick",
+      },
       { name: "Preise", href: "/preise", description: "Tarife und Kosten" },
       { name: "Demo", href: "/demo", description: "Produktdemo ansehen" },
     ],
@@ -23,31 +28,87 @@ const navDropdowns: NavDropdown[] = [
   {
     label: "Branchen",
     items: [
-      { name: "Galvanik", href: "/galvanik", description: "Fuer Galvanik-Betriebe" },
-      { name: "Lohnbeschichtung", href: "/lohnbeschichtung", description: "Fuer Lohnbeschichter" },
-      { name: "Oberflaechenveredlung", href: "/oberflaechenveredlung", description: "Fuer Veredlungsbetriebe" },
-      { name: "Automotive", href: "/automotive-galvanik", description: "Fuer Autozulieferer" },
-      { name: "Chrom-Nickel", href: "/chrom-nickel", description: "Cr-Ni Beschichtung" },
-      { name: "Zink-Nickel", href: "/zink-nickel", description: "Zn-Ni Beschichtung" },
+      {
+        name: "Galvanik",
+        href: "/galvanik",
+        description: "Fuer Galvanik-Betriebe",
+      },
+      {
+        name: "Lohnbeschichtung",
+        href: "/lohnbeschichtung",
+        description: "Fuer Lohnbeschichter",
+      },
+      {
+        name: "Oberflaechenveredlung",
+        href: "/oberflaechenveredlung",
+        description: "Fuer Veredlungsbetriebe",
+      },
+      {
+        name: "Automotive",
+        href: "/automotive-galvanik",
+        description: "Fuer Autozulieferer",
+      },
+      {
+        name: "Chrom-Nickel",
+        href: "/chrom-nickel",
+        description: "Cr-Ni Beschichtung",
+      },
+      {
+        name: "Zink-Nickel",
+        href: "/zink-nickel",
+        description: "Zn-Ni Beschichtung",
+      },
     ],
   },
   {
     label: "Loesungen",
     items: [
-      { name: "Digitaler Laufzettel", href: "/digitaler-laufzettel", description: "Papierloses Auftragsmanagement" },
-      { name: "QR-Code Loesung", href: "/qr-code-galvanik", description: "Mobile Erfassung" },
-      { name: "Batch-Verfolgung", href: "/batch-verfolgung", description: "Chargenrueckverfolgung" },
-      { name: "Schadteile-Verfolgung", href: "/schadteile-verfolgung", description: "Fehlerdokumentation" },
-      { name: "ISO 9001", href: "/iso-9001-galvanik", description: "Qualitaetsmanagement" },
-      { name: "IATF 16949", href: "/iatf-16949", description: "Automotive-Compliance" },
+      {
+        name: "Digitaler Laufzettel",
+        href: "/digitaler-laufzettel",
+        description: "Papierloses Auftragsmanagement",
+      },
+      {
+        name: "QR-Code Loesung",
+        href: "/qr-code-galvanik",
+        description: "Mobile Erfassung",
+      },
+      {
+        name: "Batch-Verfolgung",
+        href: "/batch-verfolgung",
+        description: "Chargenrueckverfolgung",
+      },
+      {
+        name: "Schadteile-Verfolgung",
+        href: "/schadteile-verfolgung",
+        description: "Fehlerdokumentation",
+      },
+      {
+        name: "ISO 9001",
+        href: "/iso-9001-galvanik",
+        description: "Qualitaetsmanagement",
+      },
+      {
+        name: "IATF 16949",
+        href: "/iatf-16949",
+        description: "Automotive-Compliance",
+      },
     ],
   },
   {
     label: "Ressourcen",
     items: [
-      { name: "Wissen", href: "/wissen", description: "Ratgeber & Fachartikel" },
+      {
+        name: "Wissen",
+        href: "/wissen",
+        description: "Ratgeber & Fachartikel",
+      },
       { name: "Blog", href: "/blog", description: "Aktuelle Beitraege" },
-      { name: "ISO Rueckverfolgbarkeit", href: "/iso-ruckverfolgbarkeit", description: "Normen & Guidelines" },
+      {
+        name: "ISO Rueckverfolgbarkeit",
+        href: "/iso-ruckverfolgbarkeit",
+        description: "Normen & Guidelines",
+      },
     ],
   },
 ];
@@ -79,7 +140,9 @@ function DropdownMenu({ dropdown }: { dropdown: NavDropdown }) {
     >
       <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors">
         {dropdown.label}
-        <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+        <ChevronDown
+          className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
+        />
       </button>
 
       <AnimatePresence>
@@ -98,9 +161,13 @@ function DropdownMenu({ dropdown }: { dropdown: NavDropdown }) {
                   href={item.href}
                   className="block px-4 py-3 rounded-md text-sm hover:bg-zinc-700 transition-colors"
                 >
-                  <span className="font-medium text-white block">{item.name}</span>
+                  <span className="font-medium text-white block">
+                    {item.name}
+                  </span>
                   {item.description && (
-                    <span className="block text-xs text-zinc-400 mt-0.5">{item.description}</span>
+                    <span className="block text-xs text-zinc-400 mt-0.5">
+                      {item.description}
+                    </span>
                   )}
                 </Link>
               ))}
@@ -122,10 +189,16 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <QrCode className="w-5 h-5 text-white" />
-            </div>
-            <span className="font-bold text-xl text-white tracking-tight">GalvanoTrack</span>
+            <Image
+              src="/logo.svg"
+              alt="GalvanoTrack Logo"
+              width={32}
+              height={32}
+              className="w-8 h-8"
+            />
+            <span className="font-bold text-xl text-white tracking-tight">
+              GalvanoTrack
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -133,7 +206,10 @@ export function Navbar() {
             {navDropdowns.map((dropdown) => (
               <DropdownMenu key={dropdown.label} dropdown={dropdown} />
             ))}
-            <Link href="/preise" className="px-3 py-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors">
+            <Link
+              href="/preise"
+              className="px-3 py-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors"
+            >
               Preise
             </Link>
           </nav>
@@ -141,7 +217,11 @@ export function Navbar() {
           {/* CTAs */}
           <div className="hidden lg:flex items-center gap-3">
             <Link href="https://app.galvanotrack.de" target="_blank">
-              <Button variant="ghost" size="sm" className="text-zinc-300 hover:text-white hover:bg-zinc-800">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-zinc-300 hover:text-white hover:bg-zinc-800"
+              >
                 Anmelden
               </Button>
             </Link>
@@ -159,7 +239,11 @@ export function Navbar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </div>
@@ -205,12 +289,19 @@ export function Navbar() {
               </Link>
               <div className="flex flex-col gap-2 pt-4 border-t border-zinc-800 mt-4">
                 <Link href="https://app.galvanotrack.de" target="_blank">
-                  <Button variant="ghost" size="sm" className="w-full justify-center text-zinc-300">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="w-full justify-center text-zinc-300"
+                  >
                     Anmelden
                   </Button>
                 </Link>
                 <Link href="/demo" onClick={() => setMobileMenuOpen(false)}>
-                  <Button size="sm" className="w-full justify-center bg-blue-600 hover:bg-blue-700">
+                  <Button
+                    size="sm"
+                    className="w-full justify-center bg-blue-600 hover:bg-blue-700"
+                  >
                     Kostenlos testen
                   </Button>
                 </Link>
