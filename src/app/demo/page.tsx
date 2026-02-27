@@ -1,27 +1,67 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { QrCode, CheckCircle2, ArrowRight, Zap, Clock, Video, Calendar, Play } from "lucide-react";
+import {
+  QrCode,
+  CheckCircle2,
+  ArrowRight,
+  Zap,
+  Clock,
+  Video,
+  Calendar,
+  Play,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { siteConfig } from "@/lib/seo-config";
+import { WebPageSchema } from "@/components/seo/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Demo | GalvanoTrack - Kostenlose Live-Demo",
-  description: "Vereinbaren Sie eine kostenlose Live-Demo von GalvanoTrack. 30 Minuten persönliche Präsentation unserer Galvanik Software.",
-  keywords: ["Demo GalvanoTrack", "Live Demo Galvanik Software", "GalvanoTrack Vorführung", "Software Demo Rückverfolgbarkeit"],
+  title: "Demo – Kostenlose Live-Demo von GalvanoTrack",
+  description:
+    "Vereinbaren Sie eine kostenlose Live-Demo von GalvanoTrack. 30 Minuten persönliche Präsentation der Galvanik-Software für Rückverfolgbarkeit und ISO-Compliance.",
+  keywords: [
+    "Demo GalvanoTrack",
+    "Live Demo Galvanik Software",
+    "GalvanoTrack Vorführung",
+    "Software Demo Rückverfolgbarkeit",
+  ],
+  alternates: {
+    canonical: `${siteConfig.url}/demo`,
+  },
   openGraph: {
     title: "Demo | GalvanoTrack - Kostenlose Live-Demo",
     description: "Kostenlose Live-Demo unserer Galvanik Software.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Demo – GalvanoTrack",
+    description:
+      "Kostenlose Live-Demo der Galvanik-Software für Rückverfolgbarkeit.",
   },
 };
 
 export default function DemoPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SEONavigation />
+      <WebPageSchema
+        name="Demo – Kostenlose Live-Demo von GalvanoTrack"
+        description="30 Minuten Live-Demo unserer Galvanik-Software. Persönlich und unverbindlich."
+        url="/demo"
+        breadcrumb={[{ name: "Demo", href: "/demo" }]}
+      />
+      <Navbar />
       <main>
         <section className="relative min-h-[60vh] flex items-center pt-16 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-30" />
@@ -37,13 +77,13 @@ export default function DemoPage() {
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                Kostenlose{" "}
-                <span className="text-gradient">Live-Demo</span>
+                Kostenlose <span className="text-gradient">Live-Demo</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Erleben Sie GalvanoTrack in einer persönlichen 30-minütigen Live-Demo.
-                Wir zeigen Ihnen, wie unsere Software Ihre Galvanik-Prozesse optimiert.
+                Erleben Sie GalvanoTrack in einer persönlichen 30-minütigen
+                Live-Demo. Wir zeigen Ihnen, wie unsere Software Ihre
+                Galvanik-Prozesse optimiert.
               </p>
             </div>
           </div>
@@ -74,11 +114,19 @@ export default function DemoPage() {
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="email">E-Mail</Label>
-                        <Input id="email" type="email" placeholder="max@mustermann.de" />
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="max@mustermann.de"
+                        />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="phone">Telefon</Label>
-                        <Input id="phone" type="tel" placeholder="+49 123 456789" />
+                        <Input
+                          id="phone"
+                          type="tel"
+                          placeholder="+49 123 456789"
+                        />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="company">Firma</Label>
@@ -103,13 +151,31 @@ export default function DemoPage() {
 
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-2xl font-bold mb-4">So läuft die Demo ab</h2>
+                  <h2 className="text-2xl font-bold mb-4">
+                    So läuft die Demo ab
+                  </h2>
                   <div className="space-y-4">
                     {[
-                      { icon: Clock, title: "30 Minuten", description: "Persönlicher Termin nach Wahl" },
-                      { icon: Play, title: "Live-Präsentation", description: "Wir zeigen Ihnen alle Features" },
-                      { icon: Zap, title: "Individuell", description: " zugeschnitten auf Ihre Anforderungen" },
-                      { icon: CheckCircle2, title: "Unverbindlich", description: "Keine Verpflichtung" }
+                      {
+                        icon: Clock,
+                        title: "30 Minuten",
+                        description: "Persönlicher Termin nach Wahl",
+                      },
+                      {
+                        icon: Play,
+                        title: "Live-Präsentation",
+                        description: "Wir zeigen Ihnen alle Features",
+                      },
+                      {
+                        icon: Zap,
+                        title: "Individuell",
+                        description: " zugeschnitten auf Ihre Anforderungen",
+                      },
+                      {
+                        icon: CheckCircle2,
+                        title: "Unverbindlich",
+                        description: "Keine Verpflichtung",
+                      },
                     ].map((item, index) => (
                       <div key={index} className="flex gap-4">
                         <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -117,7 +183,9 @@ export default function DemoPage() {
                         </div>
                         <div>
                           <h3 className="font-semibold mb-1">{item.title}</h3>
-                          <p className="text-sm text-muted-foreground">{item.description}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {item.description}
+                          </p>
                         </div>
                       </div>
                     ))}
@@ -125,14 +193,16 @@ export default function DemoPage() {
                 </div>
 
                 <div className="pt-8 border-t border-border">
-                  <h3 className="font-semibold mb-4">Was Sie in der Demo sehen</h3>
+                  <h3 className="font-semibold mb-4">
+                    Was Sie in der Demo sehen
+                  </h3>
                   <ul className="space-y-2">
                     {[
                       "QR-Code Verwaltung",
                       "Scan-Interface",
                       "Dokumentationsfunktionen",
                       "Audit-Exporte",
-                      "Preise und Pakete"
+                      "Preise und Pakete",
                     ].map((item, index) => (
                       <li key={index} className="flex items-center gap-3">
                         <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
@@ -154,7 +224,8 @@ export default function DemoPage() {
                 Selbst ausprobieren
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Sie können GalvanoTrack auch 14 Tage lang kostenlos und unverbindlich testen.
+                Sie können GalvanoTrack auch 14 Tage lang kostenlos und
+                unverbindlich testen.
               </p>
             </div>
 
@@ -163,18 +234,23 @@ export default function DemoPage() {
                 <CardHeader>
                   <Video className="w-8 h-8 text-primary mb-2" />
                   <CardTitle>Live-Demo</CardTitle>
-                  <CardDescription>30 Minuten persönliche Präsentation</CardDescription>
+                  <CardDescription>
+                    30 Minuten persönliche Präsentation
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2 mb-4">
                     <li className="flex items-center gap-2 text-sm">
-                      <CheckCircle2 className="w-4 h-4 text-green-500" /> Persönlich
+                      <CheckCircle2 className="w-4 h-4 text-green-500" />{" "}
+                      Persönlich
                     </li>
                     <li className="flex items-center gap-2 text-sm">
-                      <CheckCircle2 className="w-4 h-4 text-green-500" /> Fragen stellen
+                      <CheckCircle2 className="w-4 h-4 text-green-500" /> Fragen
+                      stellen
                     </li>
                     <li className="flex items-center gap-2 text-sm">
-                      <CheckCircle2 className="w-4 h-4 text-green-500" /> Individuell
+                      <CheckCircle2 className="w-4 h-4 text-green-500" />{" "}
+                      Individuell
                     </li>
                   </ul>
                   <Link href="/kontakt">
@@ -192,17 +268,22 @@ export default function DemoPage() {
                 <CardContent>
                   <ul className="space-y-2 mb-4">
                     <li className="flex items-center gap-2 text-sm">
-                      <CheckCircle2 className="w-4 h-4 text-green-500" /> Alle Features
+                      <CheckCircle2 className="w-4 h-4 text-green-500" /> Alle
+                      Features
                     </li>
                     <li className="flex items-center gap-2 text-sm">
-                      <CheckCircle2 className="w-4 h-4 text-green-500" /> Keine Kreditkarte
+                      <CheckCircle2 className="w-4 h-4 text-green-500" /> Keine
+                      Kreditkarte
                     </li>
                     <li className="flex items-center gap-2 text-sm">
-                      <CheckCircle2 className="w-4 h-4 text-green-500" /> Jederzeit kündbar
+                      <CheckCircle2 className="w-4 h-4 text-green-500" />{" "}
+                      Jederzeit kündbar
                     </li>
                   </ul>
                   <Link href="/kontakt">
-                    <Button variant="outline" className="w-full">Testzugang anfordern</Button>
+                    <Button variant="outline" className="w-full">
+                      Testzugang anfordern
+                    </Button>
                   </Link>
                 </CardContent>
               </Card>
@@ -213,14 +294,19 @@ export default function DemoPage() {
         <section className="py-24 bg-zinc-900/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4">Entdecken Sie mehr</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+                Entdecken Sie mehr
+              </h2>
             </div>
             <div className="grid md:grid-cols-4 gap-4">
               {[
                 { href: "/galvanik", label: "Galvanik Software" },
                 { href: "/preise", label: "Preise" },
-                { href: "/digitaler-laufzettel", label: "Digitaler Laufzettel" },
-                { href: "/iso-9001-galvanik", label: "ISO 9001" }
+                {
+                  href: "/digitaler-laufzettel",
+                  label: "Digitaler Laufzettel",
+                },
+                { href: "/iso-9001-galvanik", label: "ISO 9001" },
               ].map((link, index) => (
                 <Link key={index} href={link.href}>
                   <Card className="card-metallic h-full hover:border-primary/50 transition-colors cursor-pointer">
@@ -235,7 +321,7 @@ export default function DemoPage() {
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <Footer />
     </div>
   );
 }

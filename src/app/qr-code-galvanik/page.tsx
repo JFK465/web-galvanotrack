@@ -1,25 +1,70 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { QrCode, ScanLine, FileText, CheckCircle2, ArrowRight, Shield, Clock, Zap, Users, Building2, Printer, Smartphone } from "lucide-react";
+import {
+  QrCode,
+  ScanLine,
+  FileText,
+  CheckCircle2,
+  ArrowRight,
+  Shield,
+  Clock,
+  Zap,
+  Users,
+  Building2,
+  Printer,
+  Smartphone,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { WebPageSchema } from "@/components/seo/StructuredData";
+import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "QR-Code Galvanik | Digitale Rückverfolgung mit QR-Codes",
-  description: "GalvanoTrack - QR-Code Lösung für Galvanik-Betriebe. Jedes Werkstück erhält einen einzigartigen QR-Code für lückenlose Rückverfolgbarkeit.",
-  keywords: ["QR-Code Galvanik", "QR-Code Rückverfolgung", "QR-Code Beschichtung", "QR-Code Etikett", "Barcode Galvanik"],
+  title: "QR-Code Galvanik – Digitale Rückverfolgung mit QR-Codes",
+  description:
+    "GalvanoTrack - QR-Code Lösung für Galvanik-Betriebe. Jedes Werkstück erhält einen einzigartigen QR-Code für lückenlose Rückverfolgbarkeit.",
+  keywords: [
+    "QR-Code Galvanik",
+    "QR-Code Rückverfolgung",
+    "QR-Code Beschichtung",
+    "QR-Code Etikett",
+    "Barcode Galvanik",
+  ],
+    alternates: {
+    canonical: `${siteConfig.url}/qr-code-galvanik`,
+  },
   openGraph: {
     title: "QR-Code Galvanik | Digitale Rückverfolgung",
-    description: "QR-Code Lösung für Galvanik. Jedes Werkstück erhält einen einzigartigen QR-Code.",
+    description:
+      "QR-Code Lösung für Galvanik. Jedes Werkstück erhält einen einzigartigen QR-Code.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "QR-Code Galvanik – GalvanoTrack",
+    description: "QR-Code-basierte Auftragsverfolgung für Galvanik-Betriebe.",
   },
 };
 
 export default function QRCodGalvanikPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SEONavigation />
+      <WebPageSchema
+        name="QR-Code Galvanik – Digitale Rückverfolgung mit QR-Codes"
+        description="QR-Code-Lösung für Galvanik-Betriebe: Lückenlose Rückverfolgbarkeit."
+        url="/qr-code-galvanik"
+        breadcrumb={[{ name: "QR-Code Galvanik", href: "/qr-code-galvanik" }]}
+      />
+      <Navbar />
       <main>
+        <div className="pt-20 pb-2 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            items={[{ name: "QR-Code Galvanik", href: "/qr-code-galvanik" }]}
+          />
+        </div>
         {/* Hero Section */}
         <section className="relative min-h-[80vh] flex items-center pt-16 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-30" />
@@ -40,9 +85,9 @@ export default function QRCodGalvanikPage() {
               </h1>
 
               <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl">
-                Jedes Werkstück erhält einen einzigartigen QR-Code. Einfach scannen und
-                alle Prozessdaten sind sofort verfügbar. Die moderne Lösung für
-                Rückverfolgbarkeit in der Galvanik.
+                Jedes Werkstück erhält einen einzigartigen QR-Code. Einfach
+                scannen und alle Prozessdaten sind sofort verfügbar. Die moderne
+                Lösung für Rückverfolgbarkeit in der Galvanik.
               </p>
 
               <div className="flex flex-col sm:flex-row items-start gap-4 mb-12">
@@ -79,7 +124,9 @@ export default function QRCodGalvanikPage() {
         <section className="py-24 bg-zinc-900/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <span className="text-primary font-medium">So funktioniert's</span>
+              <span className="text-primary font-medium">
+                So funktioniert&apos;s
+              </span>
               <h2 className="text-3xl sm:text-4xl font-bold mt-2 mb-4">
                 QR-Code basierte Rückverfolgung
               </h2>
@@ -87,13 +134,35 @@ export default function QRCodGalvanikPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { number: "01", title: "QR-Code generieren", description: "Für jeden Auftrag werden einzigartige QR-Codes erstellt." },
-                { number: "02", title: "Drucken", description: "QR-Codes auf Etiketten drucken oder direkt auf Werkstücke." },
-                { number: "03", title: "Scannen", description: "An jeder Station den QR-Code scannen mit dem Smartphone." },
-                { number: "04", title: "Dokumentieren", description: "Alle Daten werden automatisch erfasst und gespeichert." }
+                {
+                  number: "01",
+                  title: "QR-Code generieren",
+                  description:
+                    "Für jeden Auftrag werden einzigartige QR-Codes erstellt.",
+                },
+                {
+                  number: "02",
+                  title: "Drucken",
+                  description:
+                    "QR-Codes auf Etiketten drucken oder direkt auf Werkstücke.",
+                },
+                {
+                  number: "03",
+                  title: "Scannen",
+                  description:
+                    "An jeder Station den QR-Code scannen mit dem Smartphone.",
+                },
+                {
+                  number: "04",
+                  title: "Dokumentieren",
+                  description:
+                    "Alle Daten werden automatisch erfasst und gespeichert.",
+                },
               ].map((step, index) => (
                 <div key={index} className="relative">
-                  <div className="text-6xl font-bold text-primary/20 mb-4">{step.number}</div>
+                  <div className="text-6xl font-bold text-primary/20 mb-4">
+                    {step.number}
+                  </div>
                   <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                   <p className="text-muted-foreground">{step.description}</p>
                   {index < 3 && (
@@ -120,35 +189,44 @@ export default function QRCodGalvanikPage() {
                 {
                   icon: ScanLine,
                   title: "Schnelle Erfassung",
-                  description: "In Millisekunden sind alle Daten erfasst. Keine manuellen Eingaben mehr."
+                  description:
+                    "In Millisekunden sind alle Daten erfasst. Keine manuellen Eingaben mehr.",
                 },
                 {
                   icon: Shield,
                   title: "Fehlervermeidung",
-                  description: "Keine Tippfehler mehr. Der Code enthält alle wichtigen Informationen."
+                  description:
+                    "Keine Tippfehler mehr. Der Code enthält alle wichtigen Informationen.",
                 },
                 {
                   icon: Clock,
                   title: "Zeitersparnis",
-                  description: "Sekundenschnelle Datenerfassung statt minutenlanger manueller Einträge."
+                  description:
+                    "Sekundenschnelle Datenerfassung statt minutenlanger manueller Einträge.",
                 },
                 {
                   icon: FileText,
                   title: "Lückenlose Dokumentation",
-                  description: "Jeder Prozessschritt wird automatisch protokolliert."
+                  description:
+                    "Jeder Prozessschritt wird automatisch protokolliert.",
                 },
                 {
                   icon: Smartphone,
                   title: "Mobile Nutzung",
-                  description: "Funktioniert mit jedem Smartphone oder Tablet. Keine spezielle Hardware nötig."
+                  description:
+                    "Funktioniert mit jedem Smartphone oder Tablet. Keine spezielle Hardware nötig.",
                 },
                 {
                   icon: Printer,
                   title: "Flexible Etiketten",
-                  description: "Verschiedene Etikettenformate für jede Anforderung."
-                }
+                  description:
+                    "Verschiedene Etikettenformate für jede Anforderung.",
+                },
               ].map((item, index) => (
-                <Card key={index} className="card-metallic h-full hover:border-primary/50 transition-colors">
+                <Card
+                  key={index}
+                  className="card-metallic h-full hover:border-primary/50 transition-colors"
+                >
                   <CardHeader>
                     <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                       <item.icon className="w-6 h-6 text-primary" />
@@ -182,18 +260,21 @@ export default function QRCodGalvanikPage() {
                 {
                   icon: Smartphone,
                   title: "Smartphone/Tablet",
-                  description: "Die Kamera Ihres Smartphones reicht zum Scannen. Optional: RFID-Scanner für noch schnellere Erfassung."
+                  description:
+                    "Die Kamera Ihres Smartphones reicht zum Scannen. Optional: RFID-Scanner für noch schnellere Erfassung.",
                 },
                 {
                   icon: Printer,
                   title: "Etikettendrucker",
-                  description: "Standard-Etikettendrucker für QR-Code Etiketten. Wir empfehlen: Zebra, Brother oder Dymo."
+                  description:
+                    "Standard-Etikettendrucker für QR-Code Etiketten. Wir empfehlen: Zebra, Brother oder Dymo.",
                 },
                 {
                   icon: QrCode,
                   title: "QR-Code Labels",
-                  description: "Wetterfeste Labels für den rauen Galvanik-Alltag. Verschiedene Größen und Materialien."
-                }
+                  description:
+                    "Wetterfeste Labels für den rauen Galvanik-Alltag. Verschiedene Größen und Materialien.",
+                },
               ].map((item, index) => (
                 <Card key={index} className="card-metallic h-full">
                   <CardHeader>
@@ -227,10 +308,13 @@ export default function QRCodGalvanikPage() {
             </div>
             <div className="grid md:grid-cols-4 gap-4">
               {[
-                { href: "/digitaler-laufzettel", label: "Digitaler Laufzettel" },
+                {
+                  href: "/digitaler-laufzettel",
+                  label: "Digitaler Laufzettel",
+                },
                 { href: "/galvanik", label: "Galvanik Software" },
                 { href: "/iso-9001-galvanik", label: "ISO 9001 Galvanik" },
-                { href: "/preise", label: "Preise" }
+                { href: "/preise", label: "Preise" },
               ].map((link, index) => (
                 <Link key={index} href={link.href}>
                   <Card className="card-metallic h-full hover:border-primary/50 transition-colors cursor-pointer">
@@ -255,8 +339,8 @@ export default function QRCodGalvanikPage() {
                   Bereit für QR-Code Rückverfolgung?
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  Vereinbaren Sie eine kostenlose Demo. Wir zeigen Ihnen, wie einfach
-                  QR-Code basierte Rückverfolgung funktioniert.
+                  Vereinbaren Sie eine kostenlose Demo. Wir zeigen Ihnen, wie
+                  einfach QR-Code basierte Rückverfolgung funktioniert.
                 </p>
 
                 <div className="space-y-4">
@@ -266,7 +350,9 @@ export default function QRCodGalvanikPage() {
                     </div>
                     <div>
                       <p className="font-medium">Kostenlose Demo</p>
-                      <p className="text-sm text-muted-foreground">30 Minuten Live-Präsentation</p>
+                      <p className="text-sm text-muted-foreground">
+                        30 Minuten Live-Präsentation
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -275,7 +361,9 @@ export default function QRCodGalvanikPage() {
                     </div>
                     <div>
                       <p className="font-medium">14 Tage kostenlos testen</p>
-                      <p className="text-sm text-muted-foreground">Voller Funktionsumfang</p>
+                      <p className="text-sm text-muted-foreground">
+                        Voller Funktionsumfang
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -300,7 +388,7 @@ export default function QRCodGalvanikPage() {
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <Footer />
     </div>
   );
 }

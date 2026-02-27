@@ -3,23 +3,45 @@ import Link from "next/link";
 import { QrCode, ScanLine, FileText, CheckCircle2, ArrowRight, Shield, Zap, Users, Building2, Droplets, Hexagon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { WebPageSchema } from "@/components/seo/StructuredData";
+import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "Chrom Nickel Galvanik | CrNi Beschichtung Software",
-  description: "GalvanoTrack - Die Software für Chrom-Nickel Galvanik. Dokumentation und Rückverfolgbarkeit für CrNi-Beschichtungen. ISO-konform.",
+  title: "Chrom-Nickel Galvanik – CrNi Beschichtung Software",
+  description: "GalvanoTrack: Software für Chrom-Nickel-Galvanik. Dokumentation und Rückverfolgbarkeit für CrNi-Beschichtungen – ISO 9001 & IATF 16949 konform.",
   keywords: ["Chrom Nickel Galvanik", "CrNi Beschichtung", "Chrom Nickel Software", "Edelstahl Galvanik", "NiCr Beschichtung"],
+    alternates: {
+    canonical: `${siteConfig.url}/chrom-nickel`,
+  },
   openGraph: {
     title: "Chrom Nickel Galvanik | CrNi Beschichtung Software",
     description: "Die SaaS-Lösung für Chrom-Nickel Galvanik.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Chrom-Nickel Galvanik – GalvanoTrack",
+    description: "ISO-konforme Dokumentation für CrNi-Beschichtungen in der Galvanik.",
   },
 };
 
 export default function ChromNickelPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SEONavigation />
+      <WebPageSchema
+        name="Chrom-Nickel Galvanik – CrNi Beschichtung Software"
+        description="Software für Chrom-Nickel-Galvanik: CrNi-Dokumentation und Rückverfolgbarkeit."
+        url="/chrom-nickel"
+        breadcrumb={[{ name: "Chrom-Nickel", href: "/chrom-nickel" }]}
+      />
+      <Navbar />
       <main>
+        <div className="pt-20 pb-2 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ name: "Chrom-Nickel", href: "/chrom-nickel" }]} />
+        </div>
         <section className="relative min-h-[80vh] flex items-center pt-16 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-30" />
           <div className="absolute inset-0 bg-radial-glow" />
@@ -161,7 +183,7 @@ export default function ChromNickelPage() {
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <Footer />
     </div>
   );
 }

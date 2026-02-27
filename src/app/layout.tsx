@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/seo-config";
-import { OrganizationSchema, WebSiteSchema, SoftwareApplicationSchema } from "@/components/seo/StructuredData";
+import {
+  OrganizationSchema,
+  WebSiteSchema,
+  SoftwareApplicationSchema,
+} from "@/components/seo/StructuredData";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -19,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} – Digitaler Laufzettel für Galvanik & Oberflaechentechnik`,
+    default: `${siteConfig.name} – Digitaler Laufzettel für Galvanik & Oberflächentechnik`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -33,12 +37,14 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: `${siteConfig.name} – Digitaler Laufzettel für Galvanik`,
     description: siteConfig.description,
-    images: [{
-      url: siteConfig.ogImage,
-      width: 1200,
-      height: 630,
-      alt: siteConfig.name,
-    }],
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

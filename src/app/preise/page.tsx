@@ -1,24 +1,72 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { QrCode, CheckCircle2, ArrowRight, Shield, Zap, Clock, Users, Building2, FileText, CreditCard } from "lucide-react";
+import {
+  QrCode,
+  CheckCircle2,
+  ArrowRight,
+  Shield,
+  Zap,
+  Clock,
+  Users,
+  Building2,
+  FileText,
+  CreditCard,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
-import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from "@/components/ui/card";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { WebPageSchema } from "@/components/seo/StructuredData";
+import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "Preise | GalvanoTrack - Transparente Kosten für Galvanik Software",
-  description: "GalvanoTrack Preise. 399€/Monat für alle Features. Keine Setup-Gebühren, monatlich kündbar. 14 Tage kostenlos testen.",
-  keywords: ["Galvanik Software Preis", "GalvanoTrack Preis", "Rückverfolgbarkeit Kosten", "ISO Software Galvanik", "Laufzettel Software Preis"],
+  title: "Preise – GalvanoTrack Galvanik Software",
+  description:
+    "GalvanoTrack Preise: ab 199 €/Monat für alle Features. Keine Setup-Gebühren, monatlich kündbar. 14 Tage kostenlos testen – ohne Kreditkarte.",
+  keywords: [
+    "Galvanik Software Preis",
+    "GalvanoTrack Preis",
+    "Rückverfolgbarkeit Kosten",
+    "ISO Software Galvanik",
+    "Laufzettel Software Preis",
+  ],
+  alternates: {
+    canonical: `${siteConfig.url}/preise`,
+  },
   openGraph: {
-    title: "Preise | GalvanoTrack - Galvanik Software",
-    description: "399€/Monat für alle Features. Keine Setup-Gebühren.",
+    title: "Preise – GalvanoTrack Galvanik Software",
+    description:
+      "Ab 199 €/Monat für alle Features. Keine Setup-Gebühren, monatlich kündbar.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+    url: `${siteConfig.url}/preise`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Preise – GalvanoTrack Galvanik Software",
+    description: "Ab 199 €/Monat für alle Features. Keine Setup-Gebühren.",
   },
 };
+
+const breadcrumbs = [{ name: "Preise", href: "/preise" }];
 
 export default function PreisePage() {
   return (
     <div className="min-h-screen bg-background">
-      <SEONavigation />
+      <WebPageSchema
+        name="Preise – GalvanoTrack Galvanik Software"
+        description="Transparente Preise für GalvanoTrack: ab 199 €/Monat, monatlich kündbar, 14 Tage kostenlos testen."
+        url="/preise"
+        breadcrumb={breadcrumbs}
+      />
+      <Navbar />
       <main>
         {/* Hero Section */}
         <section className="relative min-h-[60vh] flex items-center pt-16 overflow-hidden">
@@ -26,6 +74,9 @@ export default function PreisePage() {
           <div className="absolute inset-0 bg-radial-glow" />
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div className="mb-4 max-w-7xl mx-auto">
+              <Breadcrumbs items={breadcrumbs} />
+            </div>
             <div className="max-w-3xl mx-auto text-center">
               <div className="mb-6">
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
@@ -40,8 +91,8 @@ export default function PreisePage() {
               </h1>
 
               <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Keine versteckten Kosten. Keine Setup-Gebühren. Sie zahlen nur einen
-                monatlichen Festpreis und können jederzeit kündigen.
+                Keine versteckten Kosten. Keine Setup-Gebühren. Sie zahlen nur
+                einen monatlichen Festpreis und können jederzeit kündigen.
               </p>
             </div>
           </div>
@@ -141,9 +192,7 @@ export default function PreisePage() {
                 </CardContent>
                 <CardFooter>
                   <Link href="/kontakt" className="w-full">
-                    <Button className="w-full">
-                      Kostenlos testen
-                    </Button>
+                    <Button className="w-full">Kostenlos testen</Button>
                   </Link>
                 </CardFooter>
               </Card>
@@ -170,11 +219,15 @@ export default function PreisePage() {
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
-                      <span className="text-sm">Individuelle Integrationen</span>
+                      <span className="text-sm">
+                        Individuelle Integrationen
+                      </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
-                      <span className="text-sm">Dedizierter Account Manager</span>
+                      <span className="text-sm">
+                        Dedizierter Account Manager
+                      </span>
                     </li>
                     <li className="flex items-center gap-3">
                       <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
@@ -210,10 +263,26 @@ export default function PreisePage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: Zap, title: "Schnelle Einrichtung", description: "In 30 Minuten einsatzbereit." },
-                { icon: Shield, title: "ISO-konform", description: "Alle Anforderungen erfüllt." },
-                { icon: Users, title: "Unbegrenzte Nutzer", description: "Alle Mitarbeiter können nutzen." },
-                { icon: Clock, title: "24/7 Verfügbarkeit", description: "Cloud-basiert, immer erreichbar." }
+                {
+                  icon: Zap,
+                  title: "Schnelle Einrichtung",
+                  description: "In 30 Minuten einsatzbereit.",
+                },
+                {
+                  icon: Shield,
+                  title: "ISO-konform",
+                  description: "Alle Anforderungen erfüllt.",
+                },
+                {
+                  icon: Users,
+                  title: "Unbegrenzte Nutzer",
+                  description: "Alle Mitarbeiter können nutzen.",
+                },
+                {
+                  icon: Clock,
+                  title: "24/7 Verfügbarkeit",
+                  description: "Cloud-basiert, immer erreichbar.",
+                },
               ].map((item, index) => (
                 <Card key={index} className="card-metallic h-full">
                   <CardHeader>
@@ -223,7 +292,9 @@ export default function PreisePage() {
                     <CardTitle className="text-lg">{item.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground text-sm">{item.description}</p>
+                    <p className="text-muted-foreground text-sm">
+                      {item.description}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -252,7 +323,9 @@ export default function PreisePage() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-3xl font-bold mb-2">ab 89€</div>
-                  <p className="text-sm text-muted-foreground">Einmalig. Für professionelle Scanner.</p>
+                  <p className="text-sm text-muted-foreground">
+                    Einmalig. Für professionelle Scanner.
+                  </p>
                 </CardContent>
               </Card>
               <Card className="card-metallic">
@@ -262,7 +335,9 @@ export default function PreisePage() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-3xl font-bold mb-2">ab 199€</div>
-                  <p className="text-sm text-muted-foreground">Einmalig. Thermo-Transfer Drucker.</p>
+                  <p className="text-sm text-muted-foreground">
+                    Einmalig. Thermo-Transfer Drucker.
+                  </p>
                 </CardContent>
               </Card>
             </div>
@@ -283,27 +358,33 @@ export default function PreisePage() {
               {[
                 {
                   question: "Gibt es eine Mindestvertragslaufzeit?",
-                  answer: "Nein. Sie können monatlich kündigen. Wir empfehlen jedoch eine Nutzung von mindestens 6 Monaten, um alle Vorteile zu nutzen."
+                  answer:
+                    "Nein. Sie können monatlich kündigen. Wir empfehlen jedoch eine Nutzung von mindestens 6 Monaten, um alle Vorteile zu nutzen.",
                 },
                 {
                   question: "Was ist in der kostenlosen Testphase enthalten?",
-                  answer: "Sie erhalten vollen Zugriff auf alle Features für 14 Tage. Keine Kreditkarte erforderlich."
+                  answer:
+                    "Sie erhalten vollen Zugriff auf alle Features für 14 Tage. Keine Kreditkarte erforderlich.",
                 },
                 {
                   question: "Können mehrere Standorte einen Account nutzen?",
-                  answer: "Ja, im Enterprise Plan. Im Pro Plan können Sie mehrere Standorte mit separaten Accounts verwalten."
+                  answer:
+                    "Ja, im Enterprise Plan. Im Pro Plan können Sie mehrere Standorte mit separaten Accounts verwalten.",
                 },
                 {
                   question: "Welche Zahlungsmethoden werden akzeptiert?",
-                  answer: "Wir akzeptieren Überweisung und auf Anfrage auch Lastschrift."
-                }
+                  answer:
+                    "Wir akzeptieren Überweisung und auf Anfrage auch Lastschrift.",
+                },
               ].map((faq, index) => (
                 <Card key={index} className="card-metallic">
                   <CardHeader>
                     <CardTitle className="text-lg">{faq.question}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground text-sm">{faq.answer}</p>
+                    <p className="text-muted-foreground text-sm">
+                      {faq.answer}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -322,9 +403,12 @@ export default function PreisePage() {
             <div className="grid md:grid-cols-4 gap-4">
               {[
                 { href: "/galvanik", label: "Galvanik Software" },
-                { href: "/digitaler-laufzettel", label: "Digitaler Laufzettel" },
+                {
+                  href: "/digitaler-laufzettel",
+                  label: "Digitaler Laufzettel",
+                },
                 { href: "/iso-9001-galvanik", label: "ISO 9001 Galvanik" },
-                { href: "/kontakt", label: "Kontakt" }
+                { href: "/kontakt", label: "Kontakt" },
               ].map((link, index) => (
                 <Link key={index} href={link.href}>
                   <Card className="card-metallic h-full hover:border-primary/50 transition-colors cursor-pointer">
@@ -359,7 +443,9 @@ export default function PreisePage() {
                     </div>
                     <div>
                       <p className="font-medium">Kostenlose Demo</p>
-                      <p className="text-sm text-muted-foreground">30 Minuten Live-Präsentation</p>
+                      <p className="text-sm text-muted-foreground">
+                        30 Minuten Live-Präsentation
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -368,7 +454,9 @@ export default function PreisePage() {
                     </div>
                     <div>
                       <p className="font-medium">14 Tage kostenlos testen</p>
-                      <p className="text-sm text-muted-foreground">Voller Funktionsumfang</p>
+                      <p className="text-sm text-muted-foreground">
+                        Voller Funktionsumfang
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -393,7 +481,7 @@ export default function PreisePage() {
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <Footer />
     </div>
   );
 }

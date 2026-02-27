@@ -15,7 +15,10 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { WebPageSchema } from "@/components/seo/StructuredData";
 import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
@@ -36,6 +39,7 @@ export const metadata: Metadata = {
     title: "Galvanik Software | Digitale Lösung für Galvanik-Betriebe",
     description:
       "Die SaaS-Lösung für lückenlose Rückverfolgbarkeit in der Galvanik. QR-Code basierte Auftragsverfolgung, ISO-konforme Dokumentation.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
     url: `${siteConfig.url}/galvanik`,
   },
   twitter: {
@@ -49,8 +53,17 @@ export const metadata: Metadata = {
 export default function GalvanikPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SEONavigation />
+      <WebPageSchema
+        name="Galvanik Software – Digitale Lösung für Galvanik-Betriebe"
+        description="Die SaaS-Lösung für lückenlose Rückverfolgbarkeit in der Galvanik."
+        url="/galvanik"
+        breadcrumb={[{ name: "Galvanik", href: "/galvanik" }]}
+      />
+      <Navbar />
       <main>
+        <div className="pt-20 pb-2 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ name: "Galvanik", href: "/galvanik" }]} />
+        </div>
         {/* Hero Section */}
         <section className="relative min-h-[80vh] flex items-center pt-16 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-30" />
@@ -497,7 +510,7 @@ export default function GalvanikPage() {
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <Footer />
     </div>
   );
 }

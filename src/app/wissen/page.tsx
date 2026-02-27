@@ -3,13 +3,35 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/seo-config";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { BookOpen, ClipboardCheck, QrCode, Package, FileText, ArrowRight } from "lucide-react";
+import { WebPageSchema } from "@/components/seo/StructuredData";
+import {
+  BookOpen,
+  ClipboardCheck,
+  QrCode,
+  Package,
+  FileText,
+  ArrowRight,
+} from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Wissen & Ratgeber | Galvanik & Oberflaechentechnik",
-  description: "Fachwissen zu ISO-Normen, Rueckverfolgbarkeit und Digitalisierung in der Galvanik. Praktische Ratgeber fuer Galvanik-Betriebe.",
+  title: "Wissen & Ratgeber – Galvanik & Oberflächentechnik",
+  description:
+    "Fachwissen zu ISO-Normen, Rückverfolgbarkeit und Digitalisierung in der Galvanik. Praktische Ratgeber für Galvanik-Betriebe.",
   alternates: {
     canonical: `${siteConfig.url}/wissen`,
+  },
+  openGraph: {
+    title: "Wissen & Ratgeber – Galvanik & Oberflächentechnik",
+    description:
+      "Fachwissen zu ISO-Normen, Rückverfolgbarkeit und Digitalisierung für Galvanik-Betriebe.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+    url: `${siteConfig.url}/wissen`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wissen & Ratgeber – Galvanik & Oberflächentechnik",
+    description:
+      "Fachwissen zu ISO-Normen und Digitalisierung für Galvanik-Betriebe.",
   },
 };
 
@@ -17,49 +39,56 @@ const wissenArticles = [
   {
     slug: "iso-9001-galvanik",
     title: "ISO 9001 in der Galvanik",
-    description: "Was Galvanik-Betriebe bei der Einfuehrung eines Qualitaetsmanagementsystems beachten muessen.",
+    description:
+      "Was Galvanik-Betriebe bei der Einführung eines Qualitätsmanagementsystems beachten müssen.",
     icon: ClipboardCheck,
     category: "Compliance",
   },
   {
     slug: "iatf-16949",
-    title: "IATF 16949 fuer Automotive",
-    description: "Die Anforderungen der Automobilindustrie an Galvanik-Zulieferer und wie Sie diese erfuellen.",
+    title: "IATF 16949 für Automotive",
+    description:
+      "Die Anforderungen der Automobilindustrie an Galvanik-Zulieferer und wie Sie diese erfüllen.",
     icon: BookOpen,
     category: "Compliance",
   },
   {
     slug: "digitaler-laufzettel",
     title: "Digitaler Laufzettel",
-    description: "Wie Sie mit digitalen Laufzetteln Zeit sparen und Fehler reduzieren.",
+    description:
+      "Wie Sie mit digitalen Laufzetteln Zeit sparen und Fehler reduzieren.",
     icon: FileText,
     category: "Praxis",
   },
   {
     slug: "qr-code-verfolgung",
     title: "QR-Code Verfolgung",
-    description: "QR-Codes effektiv fuer die Rueckverfolgung in der Galvanik einsetzen.",
+    description:
+      "QR-Codes effektiv für die Rückverfolgung in der Galvanik einsetzen.",
     icon: QrCode,
     category: "Technologie",
   },
   {
     slug: "chargenverfolgung",
     title: "Chargenverfolgung",
-    description: "Lueckenlose Chargendokumentation von der Vorreinigung bis zur Verpackung.",
+    description:
+      "Lückenlose Chargendokumentation von der Vorreinigung bis zur Verpackung.",
     icon: Package,
     category: "Praxis",
   },
   {
     slug: "oberflaechenpruefung",
-    title: "Oberflaechenpruefung",
-    description: "Methoden und Standards zur Pruefung von Galvanik-Beschichtungen.",
+    title: "Oberflächenprüfung",
+    description:
+      "Methoden und Standards zur Prüfung von Galvanik-Beschichtungen.",
     icon: ClipboardCheck,
-    category: "Qualitaet",
+    category: "Qualität",
   },
   {
     slug: "galvanik-dokumentation",
     title: "Galvanik-Dokumentation",
-    description: "Welche Dokumente in der Galvanik gefordert sind und wie Sie diese effizient erstellen.",
+    description:
+      "Welche Dokumente in der Galvanik gefordert sind und wie Sie diese effizient erstellen.",
     icon: FileText,
     category: "Praxis",
   },
@@ -68,6 +97,12 @@ const wissenArticles = [
 export default function WissenPage() {
   return (
     <>
+      <WebPageSchema
+        name="Wissen & Ratgeber – Galvanik & Oberflächentechnik"
+        description="Fachwissen zu ISO-Normen, Rückverfolgbarkeit und Digitalisierung für Galvanik-Betriebe."
+        url="/wissen"
+        breadcrumb={[{ name: "Wissen", href: "/wissen" }]}
+      />
       <Navbar />
       <main className="pt-20 min-h-screen bg-zinc-950">
         <div className="py-16 md:py-24">
@@ -79,8 +114,9 @@ export default function WissenPage() {
                   Wissen & Ratgeber
                 </h1>
                 <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
-                  Fachwissen zu ISO-Normen, Rueckverfolgbarkeit und Digitalisierung
-                  in der Galvanik. Praxisnahe Anleitungen fuer Galvanik-Betriebe.
+                  Fachwissen zu ISO-Normen, Rückverfolgbarkeit und
+                  Digitalisierung in der Galvanik. Praxisnahe Anleitungen für
+                  Galvanik-Betriebe.
                 </p>
               </div>
 

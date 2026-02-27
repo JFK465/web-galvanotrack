@@ -3,23 +3,45 @@ import Link from "next/link";
 import { QrCode, ScanLine, FileText, CheckCircle2, ArrowRight, Shield, Clock, Zap, Users, Building2, Search, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { WebPageSchema } from "@/components/seo/StructuredData";
+import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "ISO Rückverfolgbarkeit | Konforme Dokumentation für Galvanik",
-  description: "GalvanoTrack - Die Lösung für ISO-konforme Rückverfolgbarkeit in der Galvanik. Dokumentation, Chargen-Nachverfolgung und Audit-Vorbereitung.",
+  title: "ISO Rückverfolgbarkeit – Konforme Dokumentation für Galvanik",
+  description: "GalvanoTrack: ISO-konforme Rückverfolgbarkeit in der Galvanik. Lückenlose Chargen-Nachverfolgung und Audit-Vorbereitung nach ISO 9001 & IATF 16949.",
   keywords: ["ISO Rückverfolgbarkeit", "Rückverfolgbarkeit Galvanik", "ISO 9001 Rückverfolgbarkeit", "Chargenrückverfolgung", "Dokumentationspflichten Galvanik"],
+    alternates: {
+    canonical: `${siteConfig.url}/iso-ruckverfolgbarkeit`,
+  },
   openGraph: {
     title: "ISO Rückverfolgbarkeit | Konforme Dokumentation",
     description: "Die SaaS-Lösung für ISO-konforme Rückverfolgbarkeit.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ISO Rückverfolgbarkeit – GalvanoTrack",
+    description: "ISO-konforme Rückverfolgbarkeit und Chargen-Dokumentation für Galvanik.",
   },
 };
 
 export default function ISORueckverfolgbarkeitPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SEONavigation />
+      <WebPageSchema
+        name="ISO Rückverfolgbarkeit – Konforme Dokumentation für Galvanik"
+        description="ISO-konforme Rückverfolgbarkeit für Galvanik-Betriebe: Chargen-Nachverfolgung."
+        url="/iso-ruckverfolgbarkeit"
+        breadcrumb={[{ name: "ISO Rückverfolgbarkeit", href: "/iso-ruckverfolgbarkeit" }]}
+      />
+      <Navbar />
       <main>
+        <div className="pt-20 pb-2 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ name: "ISO Rueckverfolgbarkeit", href: "/iso-ruckverfolgbarkeit" }]} />
+        </div>
         <section className="relative min-h-[80vh] flex items-center pt-16 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-30" />
           <div className="absolute inset-0 bg-radial-glow" />
@@ -161,7 +183,7 @@ export default function ISORueckverfolgbarkeitPage() {
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <Footer />
     </div>
   );
 }

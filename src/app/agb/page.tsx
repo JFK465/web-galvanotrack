@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "AGB - Allgemeine Geschaeftsbedingungen",
-  description: "Allgemeine Geschaeftsbedingungen der GalvanoTrack GmbH fuer die Nutzung der Software-as-a-Service Loesung.",
+  title: "AGB – Allgemeine Geschäftsbedingungen",
+  description:
+    "Allgemeine Geschäftsbedingungen der GalvanoTrack für die Nutzung der Software-as-a-Service Lösung.",
   alternates: {
     canonical: `${siteConfig.url}/agb`,
   },
@@ -20,15 +21,12 @@ export default function AGBPage() {
         {/* Seitenheader */}
         <div className="mb-12">
           <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Allgemeine Geschaeftsbedingungen
+            Allgemeine Geschäftsbedingungen
           </h1>
-          <p className="mt-4 text-base text-zinc-400">
-            Stand: Februar 2026
-          </p>
+          <p className="mt-4 text-base text-zinc-400">Stand: Februar 2026</p>
         </div>
 
         <div className="space-y-10 text-zinc-300">
-
           {/* § 1 Geltungsbereich */}
           <section>
             <h2 className="text-xl font-semibold text-white mb-4">
@@ -36,16 +34,16 @@ export default function AGBPage() {
             </h2>
             <div className="text-sm leading-6 space-y-4">
               <p>
-                Diese Allgemeinen Geschaeftsbedingungen (AGB) gelten fuer alle
-                Vertragsverhaeltnisse zwischen der GalvanoTrack GmbH
+                Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle
+                Vertragsverhältnisse zwischen der GalvanoTrack GmbH
                 (nachfolgend &quot;Anbieter&quot;) und dem Kunden (nachfolgend
                 &quot;Kunde&quot;) ueber die Nutzung der Software-as-a-Service
                 Loesung &quot;GalvanoTrack&quot;.
               </p>
               <p>
-                Abweichende, entgegenstehende oder ergaenzende AGB des Kunden
+                Abweichende, entgegenstehende oder ergänzende AGB des Kunden
                 werden nicht Vertragsbestandteil, es sei denn, der Anbieter hat
-                deren Geltung ausdruecklich schriftlich zugestimmt.
+                deren Geltung ausdrücklich schriftlich zugestimmt.
               </p>
             </div>
           </section>
@@ -57,17 +55,18 @@ export default function AGBPage() {
             </h2>
             <div className="text-sm leading-6 space-y-4">
               <p>
-                Die Darstellung der Leistungen auf der Website des Anbieters stellt
-                kein rechtlich bindendes Angebot dar, sondern eine unverbindliche
-                Aufforderung an den Kunden, ein Angebot abzugeben.
+                Die Darstellung der Leistungen auf der Website des Anbieters
+                stellt kein rechtlich bindendes Angebot dar, sondern eine
+                unverbindliche Aufforderung an den Kunden, ein Angebot
+                abzugeben.
               </p>
               <p>
                 Der Vertrag kommt durch die Registrierung des Kunden auf der
-                Plattform und die anschliessende Betaetigung des
+                Plattform und die anschliessende Betätigung des
                 &quot;Kostenpflichtig bestellen&quot;-Buttons zustande.
               </p>
               <p>
-                Der Anbieter bestaetigt den Vertragsschluss durch eine
+                Der Anbieter bestätigt den Vertragsschluss durch eine
                 automatisch generierte E-Mail an die vom Kunden angegebene
                 E-Mail-Adresse.
               </p>
@@ -81,19 +80,20 @@ export default function AGBPage() {
             </h2>
             <div className="text-sm leading-6 space-y-4">
               <p>
-                Der Anbieter stellt dem Kunden die Software &quot;GalvanoTrack&quot;
-                als SaaS-Loesung zur Verfuegung. Der genaue Leistungsumfang
-                ergibt sich aus der jeweiligen Leistungsbeschreibung auf der
-                Website und dem gewaehlten Tarif.
+                Der Anbieter stellt dem Kunden die Software
+                &quot;GalvanoTrack&quot; als SaaS-Lösung zur Verfügung. Der
+                genaue Leistungsumfang ergibt sich aus der jeweiligen
+                Leistungsbeschreibung auf der Website und dem gewaehlten Tarif.
               </p>
               <p>
-                Der Anbieter ist berechtigt, die SaaS-Loesung weiterzuentwickeln
-                und zu verbessern. Wesentliche Aenderungen werden dem Kunden
+                Der Anbieter ist berechtigt, die SaaS-Lösung weiterzuentwickeln
+                und zu verbessern. Wesentliche Änderungen werden dem Kunden
                 vorab mitgeteilt.
               </p>
               <p>
-                Die Verfuegbarkeit der SaaS-Loesung betraegt 99,5% im
-                Jahresmittel. Geplante Wartungsarbeiten werden vorab bekannt gegeben.
+                Die Verfügbarkeit der SaaS-Lösung beträgt 99,5% im
+                Jahresmittel. Geplante Wartungsarbeiten werden vorab bekannt
+                gegeben.
               </p>
             </div>
           </section>
@@ -105,9 +105,9 @@ export default function AGBPage() {
             </h2>
             <div className="text-sm leading-6 space-y-4">
               <p>
-                Der Kunde erhaelt ein einfaches, nicht uebertragbares,
-                zeitlich auf die Vertragslaufzeit beschraenktes Recht zur
-                Nutzung der SaaS-Loesung.
+                Der Kunde erhaelt ein einfaches, nicht übertragbares, zeitlich
+                auf die Vertragslaufzeit beschränktes Recht zur Nutzung der
+                SaaS-Loesung.
               </p>
               <p>
                 Die Rechte an der Software verbleiben ausschliesslich beim
@@ -115,8 +115,8 @@ export default function AGBPage() {
                 vertraglich vereinbarten Nutzung verwenden.
               </p>
               <p>
-                Eine Vervielfaeltigung, Veraenderung, Verbreitung oder
-                oeffentliche Zuganglichmachung der Software ist nicht gestattet.
+                Eine Vervielfältigung, Veränderung, Verbreitung oder
+                öffentliche Zugänglichmachung der Software ist nicht gestattet.
               </p>
             </div>
           </section>
@@ -133,27 +133,27 @@ export default function AGBPage() {
                 weiterzugeben.
               </p>
               <p>
-                Der Kunde verpflichtet sich, die SaaS-Loesung nur im Rahmen
-                der rechtmaessigen Geschaeftszwecke zu nutzen und keine
+                Der Kunde verpflichtet sich, die SaaS-Loesung nur im Rahmen der
+                rechtmaessigen Geschaeftszwecke zu nutzen und keine
                 rechtswidrigen Inhalte einzustellen oder zu verarbeiten.
               </p>
               <p>
-                Der Kunde ist fuer die Sicherung seiner eigenen Daten
+                Der Kunde ist für die Sicherung seiner eigenen Daten
                 verantwortlich. Eine Datensicherung durch den Anbieter erfolgt
                 nur im Rahmen der vereinbarten Leistungen.
               </p>
             </div>
           </section>
 
-          {/* § 6 Verguetung */}
+          {/* § 6 Vergütung */}
           <section>
             <h2 className="text-xl font-semibold text-white mb-4">
-              § 6 Verguetung
+              § 6 Vergütung
             </h2>
             <div className="text-sm leading-6 space-y-4">
               <p>
-                Die Verguetung richtet sich nach dem jeweils gewaehlten Tarif.
-                Alle Preise verstehen sich zuzueglich der gesetzlichen
+                Die Verguetung richtet sich nach dem jeweils gewählten Tarif.
+                Alle Preise verstehen sich zuzüglich der gesetzlichen
                 Umsatzsteuer.
               </p>
               <p>
@@ -162,33 +162,33 @@ export default function AGBPage() {
               </p>
               <p>
                 Ein Zahlungsverzug berechtigt den Anbieter, den Zugang zur
-                SaaS-Loesung zu sperren, nachdem eine angemessene Frist
-                zur Zahlung gesetzt wurde.
+                SaaS-Lösung zu sperren, nachdem eine angemessene Frist zur
+                Zahlung gesetzt wurde.
               </p>
             </div>
           </section>
 
-          {/* § 7 Gewaehrleistung */}
+          {/* § 7 Gewährleistung */}
           <section>
             <h2 className="text-xl font-semibold text-white mb-4">
-              § 7 Gewaehrleistung
+              § 7 Gewährleistung
             </h2>
             <div className="text-sm leading-6 space-y-4">
               <p>
-                Der Anbieter gewaehrleistet, dass die SaaS-Loesung
-                vertragsgemess zur Verfuegung gestellt wird. Mängel werden
-                nach Eingang einer schriftlichen Fehlermeldung innerhalb
-                angemessener Frist behoben.
+                Der Anbieter gewaehrleistet, dass die SaaS-Lösung
+                vertragsgemäß zur Verfügung gestellt wird. Mängel werden nach
+                Eingang einer schriftlichen Fehlermeldung innerhalb angemessener
+                Frist behoben.
               </p>
               <p>
                 Bei erheblichen Mängeln ist der Kunde berechtigt, eine
-                angemessene Minderung der Verguetung zu verlangen oder
-                vom Vertrag zurueckzutreten.
+                angemessene Minderung der Vergütung zu verlangen oder vom
+                Vertrag zurückzutreten.
               </p>
               <p>
-                Die Gewaehrleistung ist ausgeschlossen bei Mängeln, die
-                durch unsachgemaesse Nutzung oder Eingriffe des Kunden
-                verursacht wurden.
+                Die Gewährleistung ist ausgeschlossen bei Mängeln, die durch
+                unsachgemäße Nutzung oder Eingriffe des Kunden verursacht
+                wurden.
               </p>
             </div>
           </section>
@@ -200,21 +200,21 @@ export default function AGBPage() {
             </h2>
             <div className="text-sm leading-6 space-y-4">
               <p>
-                Der Anbieter haftet fuer Schaeden, die auf einer
-                vorsaetzlichen oder grob fahrlässigen Pflichtverletzung
-                beruhen, sowie fuer Schaeden aus der Verletzung des
-                Lebens, des Koerpers oder der Gesundheit.
+                Der Anbieter haftet für Schäden, die auf einer vorsätzlichen
+                oder grob fahrlässigen Pflichtverletzung beruhen, sowie für
+                Schäden aus der Verletzung des Lebens, des Koerpers oder der
+                Gesundheit.
               </p>
               <p>
-                Bei leichter Fahrlässigkeit haftet der Anbieter nur bei
-                der Verletzung wesentlicher Vertragspflichten. In diesem
-                Fall ist die Haftung auf den vertragstypischen,
-                vorhersehbaren Schaeden begrenzt.
+                Bei leichter Fahrlässigkeit haftet der Anbieter nur bei der
+                Verletzung wesentlicher Vertragspflichten. In diesem Fall ist
+                die Haftung auf den vertragstypischen, vorhersehbaren Schäden
+                begrenzt.
               </p>
               <p>
-                Die Haftung fuer Datenverlust ist auf den Wiederherstellungsaufwand
-                begrenzt, der bei ordnungsgemaesser Datensicherung durch den
-                Kunden angefallen waere.
+                Die Haftung fuer Datenverlust ist auf den
+                Wiederherstellungsaufwand begrenzt, der bei ordnungsgemäßer
+                Datensicherung durch den Kunden angefallen wäre.
               </p>
             </div>
           </section>
@@ -226,10 +226,9 @@ export default function AGBPage() {
             </h2>
             <div className="text-sm leading-6 space-y-4">
               <p>
-                Der Anbieter verarbeitet personenbezogene Daten des Kunden
-                nur im Rahmen der gesetzlichen Bestimmungen, insbesondere
-                der DSGVO. Details hierzu sind der Datenschutzerklaerung
-                zu entnehmen.
+                Der Anbieter verarbeitet personenbezogene Daten des Kunden nur
+                im Rahmen der gesetzlichen Bestimmungen, insbesondere der DSGVO.
+                Details hierzu sind der Datenschutzerklaerung zu entnehmen.
               </p>
               <p>
                 Ein Auftragsverarbeitungsvertrag wird auf Anfrage des Kunden
@@ -245,13 +244,13 @@ export default function AGBPage() {
             </h2>
             <div className="text-sm leading-6 space-y-4">
               <p>
-                Der Vertrag wird auf unbestimmte Zeit geschlossen. Er kann
-                von beiden Parteien mit einer Frist von 30 Tagen zum Monatsende
-                schriftlich (E-Mail genuegt) gekuendigt werden.
+                Der Vertrag wird auf unbestimmte Zeit geschlossen. Er kann von
+                beiden Parteien mit einer Frist von 30 Tagen zum Monatsende
+                schriftlich (E-Mail genügt) gekündigt werden.
               </p>
               <p>
-                Das Recht zur ausserordentlichen Kuendigung aus wichtigem Grund
-                bleibt unberuehrt.
+                Das Recht zur außerordentlichen Kündigung aus wichtigem Grund
+                bleibt unberührt.
               </p>
             </div>
           </section>
@@ -267,23 +266,23 @@ export default function AGBPage() {
                 Ausschluss des UN-Kaufrechts (CISG).
               </p>
               <p>
-                Gerichtsstand ist Muenchen, sofern der Kunde Kaufmann,
+                Gerichtsstand ist München, sofern der Kunde Kaufmann,
                 juristische Person des oeffentlichen Rechts oder
                 oeffentlich-rechtliches Sondervermögen ist.
               </p>
               <p>
-                Sollte eine Bestimmung dieser AGB unwirksam sein oder werden,
-                so wird die Wirksamkeit der uebrigen Bestimmungen dadurch
-                nicht beruehrt. Anstelle der unwirksamen Bestimmung soll eine
-                wirksame Regelung treten, die dem wirtschaftlichen Zweck der
-                unwirksamen Bestimmung moeglichst naehekommt.
+                Sollte eine Bestimmung dieser AGB unwirksam sein oder werden, so
+                wird die Wirksamkeit der übrigen Bestimmungen dadurch nicht
+                beruehrt. Anstelle der unwirksamen Bestimmung soll eine wirksame
+                Regelung treten, die dem wirtschaftlichen Zweck der unwirksamen
+                Bestimmung möglichst nahekommt.
               </p>
             </div>
           </section>
 
           {/* Stand */}
           <p className="text-xs text-zinc-500 pt-4 border-t border-zinc-800">
-            Stand: Februar 2026 | GalvanoTrack GmbH, Muenchen
+            Stand: Februar 2026 | GalvanoTrack GmbH, München
           </p>
         </div>
       </div>

@@ -1,9 +1,19 @@
 import { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/seo-config";
+import { getBlogPosts } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
   const currentDate = new Date();
+
+  // Dynamische Blog-Posts
+  const blogPosts = getBlogPosts();
+  const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
 
   return [
     // Core Pages
@@ -15,6 +25,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/galvanik`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/galvanik-software`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/funktionen`,
       lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.8,
@@ -69,8 +91,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/pulverbeschichtung`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/automotive-galvanik`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
 
-    // Compliance-Seiten
+    // Compliance & Lösungs-Seiten
     {
       url: `${baseUrl}/iso-9001-galvanik`,
       lastModified: currentDate,
@@ -89,14 +123,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
-    {
-      url: `${baseUrl}/automotive-galvanik`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-
-    // Loesungen
     {
       url: `${baseUrl}/digitaler-laufzettel`,
       lastModified: currentDate,
@@ -121,8 +147,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+
+    // Tools
     {
-      url: `${baseUrl}/pulverbeschichtung`,
+      url: `${baseUrl}/tools/audit-readiness-check`,
       lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.7,
@@ -178,31 +206,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     },
 
-    // Blog
+    // Blog Index
     {
       url: `${baseUrl}/blog`,
       lastModified: currentDate,
       changeFrequency: "weekly",
       priority: 0.7,
     },
-    {
-      url: `${baseUrl}/blog/galvanik-digitalisierung-trends`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/iso-9001-audit-vorbereitung`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog/qs-dokumentation-galvanik`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
+
+    // Dynamische Blog-Posts
+    ...blogEntries,
 
     // Legal
     {

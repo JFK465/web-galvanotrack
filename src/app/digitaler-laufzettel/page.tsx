@@ -1,25 +1,74 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { QrCode, ScanLine, FileText, CheckCircle2, ArrowRight, Shield, Clock, Zap, Users, Building2, ClipboardList, Smartphone } from "lucide-react";
+import {
+  QrCode,
+  ScanLine,
+  FileText,
+  CheckCircle2,
+  ArrowRight,
+  Shield,
+  Clock,
+  Zap,
+  Users,
+  Building2,
+  ClipboardList,
+  Smartphone,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { WebPageSchema } from "@/components/seo/StructuredData";
+import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "Digitaler Laufzettel | Papierlose Lösung für Galvanik",
-  description: "GalvanoTrack - Der digitale Laufzettel für Galvanik und Oberflächentechnik. QR-Code basierte Auftragsverfolgung ohne Papier. 14 Tage kostenlos testen.",
-  keywords: ["Digitaler Laufzettel", "Papierlos Galvanik", "Digitaler Auftragszettel", "Galvanik App", "Mobiler Laufzettel"],
+  title: "Digitaler Laufzettel – Papierlose Lösung für Galvanik",
+  description:
+    "GalvanoTrack: Digitaler Laufzettel für Galvanik und Oberflächentechnik. QR-Code-Auftragsverfolgung ohne Papier, ISO-konform. 14 Tage kostenlos testen.",
+  keywords: [
+    "Digitaler Laufzettel",
+    "Papierlos Galvanik",
+    "Digitaler Auftragszettel",
+    "Galvanik App",
+    "Mobiler Laufzettel",
+  ],
+  alternates: {
+    canonical: `${siteConfig.url}/digitaler-laufzettel`,
+  },
   openGraph: {
-    title: "Digitaler Laufzettel | Papierlose Lösung für Galvanik",
-    description: "Der digitale Laufzettel für Galvanik. QR-Code basierte Auftragsverfolgung ohne Papier.",
+    title: "Digitaler Laufzettel – Papierlose Lösung für Galvanik",
+    description:
+      "Digitaler Laufzettel für Galvanik: QR-Code-Auftragsverfolgung ohne Papier, ISO-konform.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+    url: `${siteConfig.url}/digitaler-laufzettel`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Digitaler Laufzettel – GalvanoTrack",
+    description:
+      "QR-Code-basierte Auftragsverfolgung für Galvanik-Betriebe ohne Papier.",
   },
 };
 
 export default function DigitalerLaufzettelPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SEONavigation />
+      <WebPageSchema
+        name="Digitaler Laufzettel – Papierlose Lösung für Galvanik"
+        description="Digitaler Laufzettel für Galvanik: QR-Code-Auftragsverfolgung ohne Papier."
+        url="/digitaler-laufzettel"
+        breadcrumb={[{ name: "Digitaler Laufzettel", href: "/digitaler-laufzettel" }]}
+      />
+      <Navbar />
       <main>
+        <div className="pt-20 pb-2 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            items={[
+              { name: "Digitaler Laufzettel", href: "/digitaler-laufzettel" },
+            ]}
+          />
+        </div>
         {/* Hero Section */}
         <section className="relative min-h-[80vh] flex items-center pt-16 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-30" />
@@ -35,13 +84,14 @@ export default function DigitalerLaufzettelPage() {
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                Der digitale{" "}
-                <span className="text-gradient">Laufzettel</span> für Galvanik
+                Der digitale <span className="text-gradient">Laufzettel</span>{" "}
+                für Galvanik
               </h1>
 
               <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl">
-                Ersetzen Sie Ihre Papier-Laufzettel durch eine moderne, digitale Lösung.
-                QR-Code basierte Auftragsverfolgung, die auf jedem Gerät funktioniert.
+                Ersetzen Sie Ihre Papier-Laufzettel durch eine moderne, digitale
+                Lösung. QR-Code basierte Auftragsverfolgung, die auf jedem Gerät
+                funktioniert.
               </p>
 
               <div className="flex flex-col sm:flex-row items-start gap-4 mb-12">
@@ -89,18 +139,21 @@ export default function DigitalerLaufzettelPage() {
                 {
                   icon: FileText,
                   title: "Unleserlich",
-                  description: "Handschriftliche Einträge sind oft unleserlich. Das führt zu Fehlern und Nachfragen."
+                  description:
+                    "Handschriftliche Einträge sind oft unleserlich. Das führt zu Fehlern und Nachfragen.",
                 },
                 {
                   icon: ClipboardList,
                   title: "Umständlich",
-                  description: "Das Suchen nach historischen Daten kostet wertvolle Zeit. Wo ist welcher Auftrag?"
+                  description:
+                    "Das Suchen nach historischen Daten kostet wertvolle Zeit. Wo ist welcher Auftrag?",
                 },
                 {
                   icon: Shield,
                   title: "Nicht auditfähig",
-                  description: "Papierdokumente erfüllen nicht die Anforderungen für ISO-Audits."
-                }
+                  description:
+                    "Papierdokumente erfüllen nicht die Anforderungen für ISO-Audits.",
+                },
               ].map((item, index) => (
                 <Card key={index} className="card-metallic h-full">
                   <CardHeader>
@@ -130,13 +183,35 @@ export default function DigitalerLaufzettelPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { number: "01", title: "Auftrag anlegen", description: "Erstellen Sie Aufträge schnell per Handy oder Tablet." },
-                { number: "02", title: "QR-Code drucken", description: "Jedem Werkstück wird ein einzigartiger QR-Code zugewiesen." },
-                { number: "03", title: "Scannen & Dokumentieren", description: "Badzusammensetzung, Zeiten, Mitarbeiter – alles automatisch." },
-                { number: "04", title: "Rückverfolgen", description: "Mit einem Klick die komplette Historie für Audits und Reklamationen." }
+                {
+                  number: "01",
+                  title: "Auftrag anlegen",
+                  description:
+                    "Erstellen Sie Aufträge schnell per Handy oder Tablet.",
+                },
+                {
+                  number: "02",
+                  title: "QR-Code drucken",
+                  description:
+                    "Jedem Werkstück wird ein einzigartiger QR-Code zugewiesen.",
+                },
+                {
+                  number: "03",
+                  title: "Scannen & Dokumentieren",
+                  description:
+                    "Badzusammensetzung, Zeiten, Mitarbeiter – alles automatisch.",
+                },
+                {
+                  number: "04",
+                  title: "Rückverfolgen",
+                  description:
+                    "Mit einem Klick die komplette Historie für Audits und Reklamationen.",
+                },
               ].map((step, index) => (
                 <div key={index} className="relative">
-                  <div className="text-6xl font-bold text-primary/20 mb-4">{step.number}</div>
+                  <div className="text-6xl font-bold text-primary/20 mb-4">
+                    {step.number}
+                  </div>
                   <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                   <p className="text-muted-foreground">{step.description}</p>
                   {index < 3 && (
@@ -160,14 +235,43 @@ export default function DigitalerLaufzettelPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { icon: QrCode, title: "QR-Code Verwaltung", description: "Einzigartige QR-Codes für jedes Werkstück." },
-                { icon: ScanLine, title: "Scan-Interface", description: "Scannen Sie Bad-Nummern, Chargen und Stationen." },
-                { icon: FileText, title: "ISO-Dokumentation", description: "ISO-konforme Aufzeichnungen aller Prozesse." },
-                { icon: Clock, title: "Zeiterfassung", description: "Automatische Erfassung aller Bearbeitungszeiten." },
-                { icon: Users, title: "Mitarbeiter-Tracking", description: "Wer hat welche Bearbeitung durchgeführt?" },
-                { icon: Shield, title: "Audit-Ready", description: "Alle Daten für Audits ready." }
+                {
+                  icon: QrCode,
+                  title: "QR-Code Verwaltung",
+                  description: "Einzigartige QR-Codes für jedes Werkstück.",
+                },
+                {
+                  icon: ScanLine,
+                  title: "Scan-Interface",
+                  description:
+                    "Scannen Sie Bad-Nummern, Chargen und Stationen.",
+                },
+                {
+                  icon: FileText,
+                  title: "ISO-Dokumentation",
+                  description: "ISO-konforme Aufzeichnungen aller Prozesse.",
+                },
+                {
+                  icon: Clock,
+                  title: "Zeiterfassung",
+                  description:
+                    "Automatische Erfassung aller Bearbeitungszeiten.",
+                },
+                {
+                  icon: Users,
+                  title: "Mitarbeiter-Tracking",
+                  description: "Wer hat welche Bearbeitung durchgeführt?",
+                },
+                {
+                  icon: Shield,
+                  title: "Audit-Ready",
+                  description: "Alle Daten für Audits ready.",
+                },
               ].map((feature, index) => (
-                <Card key={index} className="card-metallic h-full hover:border-primary/50 transition-colors">
+                <Card
+                  key={index}
+                  className="card-metallic h-full hover:border-primary/50 transition-colors"
+                >
                   <CardHeader>
                     <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                       <feature.icon className="w-6 h-6 text-primary" />
@@ -175,7 +279,9 @@ export default function DigitalerLaufzettelPage() {
                     <CardTitle className="text-xl">{feature.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">{feature.description}</p>
+                    <p className="text-muted-foreground">
+                      {feature.description}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -195,10 +301,30 @@ export default function DigitalerLaufzettelPage() {
 
                 <div className="space-y-6">
                   {[
-                    { icon: Zap, title: "Schnell", description: "In 30 Minuten eingerichtet. Intuitiv für alle Mitarbeiter." },
-                    { icon: Shield, title: "ISO-konform", description: "Alle Anforderungen für ISO 9001 und IATF 16949 erfüllt." },
-                    { icon: Clock, title: "Zeitersparnis", description: "Keine manuelle Datenerfassung mehr. Alles automatisch." },
-                    { icon: Building2, title: "Überall nutzbar", description: "Funktioniert auf Smartphone, Tablet und PC." }
+                    {
+                      icon: Zap,
+                      title: "Schnell",
+                      description:
+                        "In 30 Minuten eingerichtet. Intuitiv für alle Mitarbeiter.",
+                    },
+                    {
+                      icon: Shield,
+                      title: "ISO-konform",
+                      description:
+                        "Alle Anforderungen für ISO 9001 und IATF 16949 erfüllt.",
+                    },
+                    {
+                      icon: Clock,
+                      title: "Zeitersparnis",
+                      description:
+                        "Keine manuelle Datenerfassung mehr. Alles automatisch.",
+                    },
+                    {
+                      icon: Building2,
+                      title: "Überall nutzbar",
+                      description:
+                        "Funktioniert auf Smartphone, Tablet und PC.",
+                    },
                   ].map((benefit, index) => (
                     <div key={index} className="flex gap-4">
                       <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
@@ -206,7 +332,9 @@ export default function DigitalerLaufzettelPage() {
                       </div>
                       <div>
                         <h3 className="font-semibold mb-1">{benefit.title}</h3>
-                        <p className="text-muted-foreground text-sm">{benefit.description}</p>
+                        <p className="text-muted-foreground text-sm">
+                          {benefit.description}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -222,21 +350,49 @@ export default function DigitalerLaufzettelPage() {
                   <CardContent>
                     <div className="space-y-4">
                       <div className="p-4 rounded-lg bg-green-500/10 border border-green-500/20">
-                        <h4 className="font-semibold text-green-500 mb-2">Digitaler Laufzettel</h4>
+                        <h4 className="font-semibold text-green-500 mb-2">
+                          Digitaler Laufzettel
+                        </h4>
                         <ul className="space-y-2 text-sm">
-                          <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> Immer leserlich</li>
-                          <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> Sofort durchsuchbar</li>
-                          <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> Audit-ready</li>
-                          <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> 399€/Monat</li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-green-500" />{" "}
+                            Immer leserlich
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-green-500" />{" "}
+                            Sofort durchsuchbar
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-green-500" />{" "}
+                            Audit-ready
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-green-500" />{" "}
+                            399€/Monat
+                          </li>
                         </ul>
                       </div>
                       <div className="p-4 rounded-lg bg-muted border border-border">
-                        <h4 className="font-semibold text-muted-foreground mb-2">Papier-Laufzettel</h4>
+                        <h4 className="font-semibold text-muted-foreground mb-2">
+                          Papier-Laufzettel
+                        </h4>
                         <ul className="space-y-2 text-sm text-muted-foreground">
-                          <li className="flex items-center gap-2"><span className="text-destructive">×</span> Oft unleserlich</li>
-                          <li className="flex items-center gap-2"><span className="text-destructive">×</span> Zeitaufwändige Suche</li>
-                          <li className="flex items-center gap-2"><span className="text-destructive">×</span> Nicht auditfähig</li>
-                          <li className="flex items-center gap-2"><span className="text-destructive">×</span> Kosten für Papier</li>
+                          <li className="flex items-center gap-2">
+                            <span className="text-destructive">×</span> Oft
+                            unleserlich
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <span className="text-destructive">×</span>{" "}
+                            Zeitaufwändige Suche
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <span className="text-destructive">×</span> Nicht
+                            auditfähig
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <span className="text-destructive">×</span> Kosten
+                            für Papier
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -260,7 +416,7 @@ export default function DigitalerLaufzettelPage() {
                 { href: "/qr-code-galvanik", label: "QR-Code Lösung" },
                 { href: "/galvanik", label: "Galvanik Software" },
                 { href: "/iso-9001-galvanik", label: "ISO 9001 Galvanik" },
-                { href: "/preise", label: "Preise" }
+                { href: "/preise", label: "Preise" },
               ].map((link, index) => (
                 <Link key={index} href={link.href}>
                   <Card className="card-metallic h-full hover:border-primary/50 transition-colors cursor-pointer">
@@ -285,8 +441,8 @@ export default function DigitalerLaufzettelPage() {
                   Bereit für den digitalen Laufzettel?
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  Vereinbaren Sie eine kostenlose Demo. Wir zeigen Ihnen, wie einfach
-                  der Umstieg auf digital ist.
+                  Vereinbaren Sie eine kostenlose Demo. Wir zeigen Ihnen, wie
+                  einfach der Umstieg auf digital ist.
                 </p>
 
                 <div className="space-y-4">
@@ -296,7 +452,9 @@ export default function DigitalerLaufzettelPage() {
                     </div>
                     <div>
                       <p className="font-medium">Kostenlose Demo</p>
-                      <p className="text-sm text-muted-foreground">30 Minuten Live-Präsentation</p>
+                      <p className="text-sm text-muted-foreground">
+                        30 Minuten Live-Präsentation
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -305,7 +463,9 @@ export default function DigitalerLaufzettelPage() {
                     </div>
                     <div>
                       <p className="font-medium">14 Tage kostenlos testen</p>
-                      <p className="text-sm text-muted-foreground">Voller Funktionsumfang</p>
+                      <p className="text-sm text-muted-foreground">
+                        Voller Funktionsumfang
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -330,7 +490,7 @@ export default function DigitalerLaufzettelPage() {
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <Footer />
     </div>
   );
 }

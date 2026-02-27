@@ -6,7 +6,10 @@ import { siteConfig } from "@/lib/seo-config";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { ArticleSchema, BreadcrumbSchema } from "@/components/seo/StructuredData";
+import {
+  ArticleSchema,
+  BreadcrumbSchema,
+} from "@/components/seo/StructuredData";
 import { MDXRemote } from "next-mdx-remote/rsc";
 
 interface Props {
@@ -38,6 +41,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.date,
       authors: [post.author],
       tags: post.tags,
+      images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
     },
   };
 }
@@ -80,7 +89,9 @@ export default async function BlogPostPage({ params }: Props) {
                       year: "numeric",
                     })}
                   </time>
-                  <span className="text-sm text-zinc-500">{post.readTime} Min. Lesezeit</span>
+                  <span className="text-sm text-zinc-500">
+                    {post.readTime} Min. Lesezeit
+                  </span>
                 </div>
 
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">

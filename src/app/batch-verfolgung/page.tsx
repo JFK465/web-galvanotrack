@@ -3,23 +3,45 @@ import Link from "next/link";
 import { QrCode, ScanLine, FileText, CheckCircle2, ArrowRight, Shield, Clock, Zap, Users, Building2, Package, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { WebPageSchema } from "@/components/seo/StructuredData";
+import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "Batch-Verfolgung Galvanik | Chargenrückverfolgung Software",
-  description: "GalvanoTrack - Die Lösung für Batch-Verfolgung in der Galvanik. Lückenlose Chargenrückverfolgung und ISO-konforme Dokumentation.",
+  title: "Batch-Verfolgung Galvanik – Chargenrückverfolgung Software",
+  description: "GalvanoTrack: Lückenlose Batch-Verfolgung in der Galvanik. Chargenrückverfolgung von der Vorreinigung bis zur Verpackung – ISO 9001 & IATF 16949 konform.",
   keywords: ["Batch-Verfolgung", "Chargenrückverfolgung", "Galvanik Batch", "Chargenverfolgung Software", "Lot Tracking"],
+    alternates: {
+    canonical: `${siteConfig.url}/batch-verfolgung`,
+  },
   openGraph: {
     title: "Batch-Verfolgung Galvanik | Chargenrückverfolgung",
     description: "Die SaaS-Lösung für Batch-Verfolgung in der Galvanik.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Batch-Verfolgung Galvanik – GalvanoTrack",
+    description: "Chargenrückverfolgung für Galvanik-Betriebe – ISO-konform.",
   },
 };
 
 export default function BatchVerfolgungPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SEONavigation />
+      <WebPageSchema
+        name="Batch-Verfolgung Galvanik – Chargenrückverfolgung Software"
+        description="Lückenlose Batch-Verfolgung in der Galvanik – ISO 9001 & IATF 16949 konform."
+        url="/batch-verfolgung"
+        breadcrumb={[{ name: "Batch-Verfolgung", href: "/batch-verfolgung" }]}
+      />
+      <Navbar />
       <main>
+        <div className="pt-20 pb-2 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ name: "Batch-Verfolgung", href: "/batch-verfolgung" }]} />
+        </div>
         <section className="relative min-h-[80vh] flex items-center pt-16 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-30" />
           <div className="absolute inset-0 bg-radial-glow" />
@@ -161,7 +183,7 @@ export default function BatchVerfolgungPage() {
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <Footer />
     </div>
   );
 }

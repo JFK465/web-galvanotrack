@@ -23,7 +23,7 @@ export default function ImpressumPage() {
             Impressum
           </h1>
           <p className="mt-4 text-base text-zinc-400">
-            Rechtliche Informationen gemäss § 5 TMG
+            Rechtliche Informationen gemäß § 5 TMG
           </p>
         </div>
 
@@ -37,7 +37,7 @@ export default function ImpressumPage() {
             <div className="bg-zinc-900 rounded-lg p-6 space-y-3 border border-zinc-800">
               <p className="font-semibold text-white">GalvanoTrack GmbH</p>
               <p>Musterstrasse 1</p>
-              <p>80331 Muenchen</p>
+              <p>80331 München</p>
               <p>Deutschland</p>
             </div>
           </section>
@@ -49,10 +49,10 @@ export default function ImpressumPage() {
             </h2>
             <div className="bg-zinc-900 rounded-lg p-6 space-y-2 border border-zinc-800">
               <p>
-                <span className="font-medium text-white">Geschaeftsfuehrer:</span> Max Mustermann
+                <span className="font-medium text-white">Geschäftsführer:</span> Max Mustermann
               </p>
               <p>
-                <span className="font-medium text-white">Handelsregister:</span> Amtsgericht Muenchen
+                <span className="font-medium text-white">Handelsregister:</span> Amtsgericht München
               </p>
               <p>
                 <span className="font-medium text-white">Registernummer:</span> HRB 123456
@@ -84,52 +84,52 @@ export default function ImpressumPage() {
             </div>
           </section>
 
-          {/* Haftung fuer Inhalte */}
+          {/* Haftung für Inhalte */}
           <section>
             <h2 className="text-xl font-semibold text-white mb-4">
-              Haftung fuer Inhalte
+              Haftung für Inhalte
             </h2>
             <div className="text-sm leading-6 space-y-4">
               <p>
-                Die Inhalte unserer Seiten wurden mit groesster Sorgfalt erstellt.
-                Fuег die Richtigkeit, Vollstaendigkeit und Aktualitaet der Inhalte
-                koennen wir jedoch keine Gewaehr uebernehmen.
+                Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt.
+                Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte
+                können wir jedoch keine Gewähr übernehmen.
               </p>
               <p>
-                Als Diensteanbieter sind wir gemaess § 7 Abs.1 TMG fuer eigene Inhalte
+                Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte
                 auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach
                 §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet,
-                uebermittelte oder gespeicherte fremde Informationen zu ueberwachen
-                oder nach Umstaenden zu forschen, die auf eine rechtswidrige Taetigkeit
+                übermittelte oder gespeicherte fremde Informationen zu überwachen
+                oder nach Umständen zu forschen, die auf eine rechtswidrige Taetigkeit
                 hinweisen.
               </p>
               <p>
                 Verpflichtungen zur Entfernung oder Sperrung der Nutzung von
                 Informationen nach den allgemeinen Gesetzen bleiben hiervon unberuehrt.
-                Eine diesbezuegliche Haftung ist jedoch erst ab dem Zeitpunkt der
-                Kenntnis einer konkreten Rechtsverletzung moeglich. Bei Bekanntwerden
+                Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der
+                Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden
                 entsprechender Rechtsverletzungen werden wir diese Inhalte umgehend
                 entfernen.
               </p>
             </div>
           </section>
 
-          {/* Haftung fuer Links */}
+          {/* Haftung für Links */}
           <section>
             <h2 className="text-xl font-semibold text-white mb-4">
-              Haftung fuer Links
+              Haftung für Links
             </h2>
             <div className="text-sm leading-6 space-y-4">
               <p>
-                Unser Angebot enthaelt Links zu externen Webseiten Dritter, auf deren
-                Inhalte wir keinen Einfluss haben. Deshalb koennen wir fuer diese
-                fremden Inhalte auch keine Gewaehr uebernehmen.
+                Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren
+                Inhalte wir keinen Einfluss haben. Deshalb können wir für diese
+                fremden Inhalte auch keine Gewähr übernehmen.
               </p>
               <p>
-                Fuег die Inhalte der verlinkten Seiten ist stets der jeweilige
+                Für die Inhalte der verlinkten Seiten ist stets der jeweilige
                 Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten
                 Seiten wurden zum Zeitpunkt der Verlinkung auf moegliche
-                Rechtsverstosse ueberprueft. Rechtswidrige Inhalte waren zum Zeitpunkt
+                Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt
                 der Verlinkung nicht erkennbar.
               </p>
               <p>
@@ -149,9 +149,9 @@ export default function ImpressumPage() {
             <div className="text-sm leading-6 space-y-4">
               <p>
                 Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen
-                Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfaeltigung,
-                Bearbeitung, Verbreitung und jede Art der Verwertung ausserhalb der
-                Grenzen des Urheberrechts beduerfen der schriftlichen Zustimmung des
+                Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung,
+                Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
+                Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des
                 jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite
                 sind nur fuer den privaten, nicht kommerziellen Gebrauch gestattet.
               </p>
@@ -173,7 +173,7 @@ export default function ImpressumPage() {
             </h2>
             <div className="text-sm leading-6 space-y-4">
               <p>
-                Die Europaeische Kommission stellt eine Plattform zur
+                Die Europäische Kommission stellt eine Plattform zur
                 Online-Streitbeilegung (OS) bereit:{" "}
                 <a
                   href="https://ec.europa.eu/consumers/odr"
@@ -196,7 +196,7 @@ export default function ImpressumPage() {
 
           {/* Stand */}
           <p className="text-xs text-zinc-500 pt-4 border-t border-zinc-800">
-            Stand: Februar 2026 | GalvanoTrack GmbH, Muenchen
+            Stand: Februar 2026 | GalvanoTrack GmbH, München
           </p>
         </div>
       </div>

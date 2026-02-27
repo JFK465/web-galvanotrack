@@ -15,7 +15,10 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { WebPageSchema } from "@/components/seo/StructuredData";
 import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
@@ -36,6 +39,7 @@ export const metadata: Metadata = {
     title: "Lohnbeschichtung Software | Digitale Lösung für Lohnbeschichter",
     description:
       "Die SaaS-Lösung für Lohnbeschichter. QR-Code basierte Auftragsverfolgung, ISO-konforme Dokumentation.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
     url: `${siteConfig.url}/lohnbeschichtung`,
   },
   twitter: {
@@ -49,8 +53,19 @@ export const metadata: Metadata = {
 export default function LohnbesichtungPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SEONavigation />
+      <WebPageSchema
+        name="Lohnbeschichtung Software – Digitale Lösung für Lohnbeschichter"
+        description="Die Software für Lohnbeschichter mit ISO-konformer Dokumentation."
+        url="/lohnbeschichtung"
+        breadcrumb={[{ name: "Lohnbeschichtung", href: "/lohnbeschichtung" }]}
+      />
+      <Navbar />
       <main>
+        <div className="pt-20 pb-2 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            items={[{ name: "Lohnbeschichtung", href: "/lohnbeschichtung" }]}
+          />
+        </div>
         {/* Hero Section */}
         <section className="relative min-h-[80vh] flex items-center pt-16 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-30" />
@@ -164,7 +179,7 @@ export default function LohnbesichtungPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <span className="text-primary font-medium">
-                So funktioniert's
+                So funktioniert&apos;s
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold mt-2 mb-4">
                 Digitaler Workflow für Lohnbeschichtung
@@ -373,7 +388,7 @@ export default function LohnbesichtungPage() {
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <Footer />
     </div>
   );
 }

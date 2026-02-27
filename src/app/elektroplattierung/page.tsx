@@ -3,23 +3,45 @@ import Link from "next/link";
 import { QrCode, ScanLine, FileText, CheckCircle2, ArrowRight, Shield, Clock, Zap, Users, Building2, Droplets, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { WebPageSchema } from "@/components/seo/StructuredData";
+import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "Elektroplattierung Software | Digitale Lösung für Galvanik",
-  description: "GalvanoTrack - Die Software für Elektroplattierung. QR-Code Verwaltung, ISO-konforme Dokumentation und Rückverfolgbarkeit für Galvanik-Betriebe.",
+  title: "Elektroplattierung Software – Digitale Lösung für Galvanik",
+  description: "GalvanoTrack: Software für Elektroplattierung. QR-Code-Verwaltung, ISO-konforme Dokumentation und lückenlose Rückverfolgbarkeit für Galvanik-Betriebe.",
   keywords: ["Elektroplattierung Software", "Galvanik Software", "Elektrochemische Beschichtung", "Galvanik Digitalisierung", "Galvanik Rückverfolgbarkeit"],
+    alternates: {
+    canonical: `${siteConfig.url}/elektroplattierung`,
+  },
   openGraph: {
     title: "Elektroplattierung Software | Digitale Lösung für Galvanik",
     description: "Die SaaS-Lösung für Elektroplattierung. QR-Code basierte Auftragsverfolgung.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Elektroplattierung Software – GalvanoTrack",
+    description: "Digitale Lösung für Elektroplattierung mit ISO-konformer Dokumentation.",
   },
 };
 
 export default function ElektroplattierungPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SEONavigation />
+      <WebPageSchema
+        name="Elektroplattierung Software – Digitale Lösung für Galvanik"
+        description="Software für Elektroplattierung: QR-Code-Auftragsverfolgung, ISO-konform."
+        url="/elektroplattierung"
+        breadcrumb={[{ name: "Elektroplattierung", href: "/elektroplattierung" }]}
+      />
+      <Navbar />
       <main>
+        <div className="pt-20 pb-2 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ name: "Elektroplattierung", href: "/elektroplattierung" }]} />
+        </div>
         <section className="relative min-h-[80vh] flex items-center pt-16 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-30" />
           <div className="absolute inset-0 bg-radial-glow" />
@@ -190,7 +212,7 @@ export default function ElektroplattierungPage() {
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <Footer />
     </div>
   );
 }

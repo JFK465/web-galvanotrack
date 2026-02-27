@@ -3,23 +3,45 @@ import Link from "next/link";
 import { QrCode, ScanLine, FileText, CheckCircle2, ArrowRight, Shield, Zap, Users, Building2, Palette, PaintBucket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { WebPageSchema } from "@/components/seo/StructuredData";
+import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "Pulverbeschichtung Software | Digitale Lösung für Beschichtungsbetriebe",
-  description: "GalvanoTrack - Die Software für Pulverbeschichtung. QR-Code Verwaltung, Dokumentation und Rückverfolgbarkeit für Pulverbeschichtungs-Betriebe.",
+  title: "Pulverbeschichtung Software – Digitale Lösung für Beschichtung",
+  description: "GalvanoTrack: Software für Pulverbeschichtung. QR-Code-Verwaltung, Dokumentation und Rückverfolgbarkeit für Pulverbeschichtungs-Betriebe – ISO-konform.",
   keywords: ["Pulverbeschichtung Software", "Pulverbeschichtung Digitalisierung", "Pulverbeschichtung Dokumentation", "Lackiererei Software", "Beschichtung Software"],
+    alternates: {
+    canonical: `${siteConfig.url}/pulverbeschichtung`,
+  },
   openGraph: {
     title: "Pulverbeschichtung Software | Digitale Lösung",
     description: "Die SaaS-Lösung für Pulverbeschichtung.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pulverbeschichtung Software – GalvanoTrack",
+    description: "Digitale Lösung für Pulverbeschichtungs-Betriebe mit ISO-konformer Dokumentation.",
   },
 };
 
 export default function PulverbeschichtungPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SEONavigation />
+      <WebPageSchema
+        name="Pulverbeschichtung Software – Digitale Lösung für Beschichtung"
+        description="Software für Pulverbeschichtung: Dokumentation und Rückverfolgbarkeit."
+        url="/pulverbeschichtung"
+        breadcrumb={[{ name: "Pulverbeschichtung", href: "/pulverbeschichtung" }]}
+      />
+      <Navbar />
       <main>
+        <div className="pt-20 pb-2 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ name: "Pulverbeschichtung", href: "/pulverbeschichtung" }]} />
+        </div>
         <section className="relative min-h-[80vh] flex items-center pt-16 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-30" />
           <div className="absolute inset-0 bg-radial-glow" />
@@ -161,7 +183,7 @@ export default function PulverbeschichtungPage() {
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <Footer />
     </div>
   );
 }

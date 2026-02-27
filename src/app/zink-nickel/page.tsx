@@ -3,23 +3,45 @@ import Link from "next/link";
 import { QrCode, ScanLine, FileText, CheckCircle2, ArrowRight, Shield, Zap, Users, Building2, Hexagon, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { WebPageSchema } from "@/components/seo/StructuredData";
+import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "Zink Nickel Beschichtung | ZnNi Galvanik Software",
-  description: "GalvanoTrack - Die Software für Zink-Nickel Beschichtung. Dokumentation und Rückverfolgbarkeit für ZnNi-Galvanik. ISO-konform.",
+  title: "Zink-Nickel Beschichtung – ZnNi Galvanik Software",
+  description: "GalvanoTrack: Software für Zink-Nickel-Galvanik. Dokumentation und Rückverfolgbarkeit für ZnNi-Beschichtungen – ISO-konform für Automotive.",
   keywords: ["Zink Nickel Galvanik", "ZnNi Beschichtung", "Zink Nickel Software", "ZnNi Galvanik", "Korrosionsschutz"],
+    alternates: {
+    canonical: `${siteConfig.url}/zink-nickel`,
+  },
   openGraph: {
     title: "Zink Nickel Beschichtung | ZnNi Galvanik Software",
     description: "Die SaaS-Lösung für Zink-Nickel Galvanik.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zink-Nickel Galvanik – GalvanoTrack",
+    description: "ISO-konforme Dokumentation für ZnNi-Beschichtungen in der Galvanik.",
   },
 };
 
 export default function ZinkNickelPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SEONavigation />
+      <WebPageSchema
+        name="Zink-Nickel Beschichtung – ZnNi Galvanik Software"
+        description="Software für Zink-Nickel-Galvanik: ZnNi-Dokumentation und Rückverfolgbarkeit."
+        url="/zink-nickel"
+        breadcrumb={[{ name: "Zink-Nickel", href: "/zink-nickel" }]}
+      />
+      <Navbar />
       <main>
+        <div className="pt-20 pb-2 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ name: "Zink-Nickel", href: "/zink-nickel" }]} />
+        </div>
         <section className="relative min-h-[80vh] flex items-center pt-16 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-30" />
           <div className="absolute inset-0 bg-radial-glow" />
@@ -161,7 +183,7 @@ export default function ZinkNickelPage() {
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <Footer />
     </div>
   );
 }

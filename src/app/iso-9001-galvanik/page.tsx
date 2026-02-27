@@ -3,23 +3,45 @@ import Link from "next/link";
 import { QrCode, ScanLine, FileText, CheckCircle2, ArrowRight, Shield, Clock, Zap, Users, Building2, Award, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { WebPageSchema } from "@/components/seo/StructuredData";
+import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "ISO 9001 Galvanik | Konformes Qualitätsmanagement für Galvanik-Betriebe",
-  description: "GalvanoTrack - Die ISO 9001 konforme Lösung für Galvanik-Betriebe. Dokumentation, Rückverfolgbarkeit und Audit-Vorbereitung für ISO-Zertifizierung.",
+  title: "ISO 9001 Galvanik – Qualitätsmanagement für Galvanik-Betriebe",
+  description: "GalvanoTrack: ISO 9001 konforme Lösung für Galvanik-Betriebe. Automatische Dokumentation, Rückverfolgbarkeit und Audit-Vorbereitung für ISO-Zertifizierung.",
   keywords: ["ISO 9001 Galvanik", "Qualitätsmanagement Galvanik", "ISO 9001 Dokumentation", "Galvanik Zertifizierung", "Audit Vorbereitung Galvanik"],
+    alternates: {
+    canonical: `${siteConfig.url}/iso-9001-galvanik`,
+  },
   openGraph: {
     title: "ISO 9001 Galvanik | Konformes Qualitätsmanagement",
     description: "Die SaaS-Lösung für ISO 9001 konforme Dokumentation in der Galvanik.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ISO 9001 Galvanik – GalvanoTrack",
+    description: "ISO 9001 konforme Dokumentation und Rückverfolgbarkeit für Galvanik.",
   },
 };
 
 export default function ISO9001GalvanikPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SEONavigation />
+      <WebPageSchema
+        name="ISO 9001 Galvanik – Qualitätsmanagement für Galvanik-Betriebe"
+        description="ISO 9001 konforme Lösung für Galvanik-Betriebe."
+        url="/iso-9001-galvanik"
+        breadcrumb={[{ name: "ISO 9001 Galvanik", href: "/iso-9001-galvanik" }]}
+      />
+      <Navbar />
       <main>
+        <div className="pt-20 pb-2 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ name: "ISO 9001 Galvanik", href: "/iso-9001-galvanik" }]} />
+        </div>
         {/* Hero Section */}
         <section className="relative min-h-[80vh] flex items-center pt-16 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-30" />
@@ -319,7 +341,7 @@ export default function ISO9001GalvanikPage() {
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <Footer />
     </div>
   );
 }

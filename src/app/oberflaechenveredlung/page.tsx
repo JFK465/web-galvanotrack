@@ -3,23 +3,45 @@ import Link from "next/link";
 import { QrCode, ScanLine, FileText, CheckCircle2, ArrowRight, Shield, Clock, Zap, Users, Truck, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { WebPageSchema } from "@/components/seo/StructuredData";
+import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "Oberflächenveredlung Software | Digitale Lösung für Beschichtungsbetriebe",
-  description: "GalvanoTrack - Die Software für Oberflächenveredlung. QR-Code Verwaltung, ISO-konforme Dokumentation und Rückverfolgbarkeit für Beschichtungsbetriebe.",
+  title: "Oberflächenveredlung Software – Digitale Lösung für Beschichtung",
+  description: "GalvanoTrack: Software für Oberflächenveredlung. QR-Code-Verwaltung, ISO-konforme Dokumentation und Rückverfolgbarkeit für Beschichtungsbetriebe.",
   keywords: ["Oberflächenveredlung Software", "Oberflächentechnik", "Beschichtung Software", "Galvanik Digitalisierung", "Oberflächenbeschichtung"],
+    alternates: {
+    canonical: `${siteConfig.url}/oberflaechenveredlung`,
+  },
   openGraph: {
     title: "Oberflächenveredlung Software | Digitale Lösung für Beschichtungsbetriebe",
     description: "Die SaaS-Lösung für Oberflächenveredlung. QR-Code basierte Auftragsverfolgung, ISO-konforme Dokumentation.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Oberflächenveredlung Software – GalvanoTrack",
+    description: "Digitale Lösung für Beschichtungsbetriebe mit ISO-konformer Dokumentation.",
   },
 };
 
 export default function OberflaechenveredlungPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SEONavigation />
+      <WebPageSchema
+        name="Oberflächenveredlung Software – Digitale Lösung für Beschichtung"
+        description="Software für Oberflächenveredlung: QR-Code, ISO-Dokumentation."
+        url="/oberflaechenveredlung"
+        breadcrumb={[{ name: "Oberflächenveredlung", href: "/oberflaechenveredlung" }]}
+      />
+      <Navbar />
       <main>
+        <div className="pt-20 pb-2 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ name: "Oberflaechenveredlung", href: "/oberflaechenveredlung" }]} />
+        </div>
         {/* Hero Section */}
         <section className="relative min-h-[80vh] flex items-center pt-16 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-30" />
@@ -293,7 +315,7 @@ export default function OberflaechenveredlungPage() {
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <Footer />
     </div>
   );
 }

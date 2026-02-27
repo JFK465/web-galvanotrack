@@ -3,23 +3,45 @@ import Link from "next/link";
 import { QrCode, ScanLine, FileText, CheckCircle2, ArrowRight, Shield, Clock, Zap, Users, Building2, Award, ClipboardList, Car } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { WebPageSchema } from "@/components/seo/StructuredData";
+import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "IATF 16949 Galvanik | Automotive-Konformität für Galvanik-Betriebe",
-  description: "GalvanoTrack - Die IATF 16949 konforme Lösung für Galvanik-Betriebe in der Automobilindustrie. Rückverfolgbarkeit und Dokumentation für Automotive-Lieferanten.",
+  title: "IATF 16949 Galvanik – Automotive-Compliance für Betriebe",
+  description: "GalvanoTrack: IATF 16949 konforme Lösung für Galvanik-Betriebe. Lückenlose Rückverfolgbarkeit, PPAP-Dokumentation und Kunden-Audits für Automotive-Lieferanten.",
   keywords: ["IATF 16949 Galvanik", "Automotive Galvanik", "IATF 16949 Dokumentation", "Automotive Lieferant Galvanik", "ISO/TS 16949"],
+    alternates: {
+    canonical: `${siteConfig.url}/iatf-16949`,
+  },
   openGraph: {
     title: "IATF 16949 Galvanik | Automotive-Konformität",
     description: "Die SaaS-Lösung für IATF 16949 konforme Dokumentation in der Galvanik.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IATF 16949 Galvanik – GalvanoTrack",
+    description: "IATF 16949 konforme Dokumentation für Automotive-Lieferanten in der Galvanik.",
   },
 };
 
 export default function IATF16949Page() {
   return (
     <div className="min-h-screen bg-background">
-      <SEONavigation />
+      <WebPageSchema
+        name="IATF 16949 Galvanik – Automotive-Compliance für Betriebe"
+        description="IATF 16949 konforme Lösung für Galvanik-Betriebe in der Automobilindustrie."
+        url="/iatf-16949"
+        breadcrumb={[{ name: "IATF 16949", href: "/iatf-16949" }]}
+      />
+      <Navbar />
       <main>
+        <div className="pt-20 pb-2 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ name: "IATF 16949", href: "/iatf-16949" }]} />
+        </div>
         {/* Hero Section */}
         <section className="relative min-h-[80vh] flex items-center pt-16 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-30" />
@@ -357,7 +379,7 @@ export default function IATF16949Page() {
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <Footer />
     </div>
   );
 }

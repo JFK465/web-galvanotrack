@@ -4,12 +4,27 @@ import { getBlogPosts, getCategories } from "@/lib/blog";
 import { siteConfig } from "@/lib/seo-config";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { WebPageSchema } from "@/components/seo/StructuredData";
 
 export const metadata: Metadata = {
-  title: "Blog | Galvanik & Oberflaechentechnik",
-  description: "Fachartikel zur Digitalisierung in der Galvanik, ISO-Compliance, Rueckverfolgbarkeit und Best Practices fuer Galvanik-Betriebe.",
+  title: "Blog – Galvanik & Oberflächentechnik",
+  description:
+    "Fachartikel zur Digitalisierung in der Galvanik, ISO-Compliance, Rückverfolgbarkeit und Best Practices für Galvanik-Betriebe.",
   alternates: {
     canonical: `${siteConfig.url}/blog`,
+  },
+  openGraph: {
+    title: "Blog – Galvanik & Oberflächentechnik",
+    description:
+      "Fachartikel zu ISO-Compliance, Rückverfolgbarkeit und Digitalisierung für Galvanik-Betriebe.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+    url: `${siteConfig.url}/blog`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog – Galvanik & Oberflächentechnik",
+    description:
+      "Fachartikel zur Digitalisierung in der Galvanik – von Experten für Galvanik-Betriebe.",
   },
 };
 
@@ -19,6 +34,12 @@ export default function BlogPage() {
 
   return (
     <>
+      <WebPageSchema
+        name="Blog – Galvanik & Oberflächentechnik"
+        description="Fachartikel zur Digitalisierung in der Galvanik, ISO-Compliance und Rückverfolgbarkeit."
+        url="/blog"
+        breadcrumb={[{ name: "Blog", href: "/blog" }]}
+      />
       <Navbar />
       <main className="pt-20 min-h-screen bg-zinc-950">
         <div className="py-16 md:py-24">
@@ -30,8 +51,9 @@ export default function BlogPage() {
                   Blog & Fachartikel
                 </h1>
                 <p className="text-xl text-zinc-400 max-w-3xl mx-auto">
-                  Praxiswissen zur Digitalisierung in der Galvanik, ISO-Compliance
-                  und Rueckverfolgbarkeit. Von Experten fuer Galvanik-Betriebe.
+                  Praxiswissen zur Digitalisierung in der Galvanik,
+                  ISO-Compliance und Rückverfolgbarkeit. Von Experten für
+                  Galvanik-Betriebe.
                 </p>
               </div>
 
@@ -116,7 +138,7 @@ export default function BlogPage() {
               ) : (
                 <div className="text-center py-12">
                   <p className="text-zinc-400 mb-4">
-                    Noch keine Blog-Beitraege verfuegbar.
+                    Noch keine Blog-Beiträge verfügbar.
                   </p>
                   <p className="text-sm text-zinc-500">
                     Wir arbeiten bereits an ersten Fachartikeln.

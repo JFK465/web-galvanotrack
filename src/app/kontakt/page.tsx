@@ -1,30 +1,77 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { QrCode, CheckCircle2, ArrowRight, Mail, Phone, MapPin, Clock, Zap } from "lucide-react";
+import {
+  QrCode,
+  CheckCircle2,
+  ArrowRight,
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Zap,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { SEONavigation, SEOFooter } from "@/components/seo-navigation";
+import { Navbar } from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { WebPageSchema } from "@/components/seo/StructuredData";
+import { siteConfig } from "@/lib/seo-config";
 
 export const metadata: Metadata = {
-  title: "Kontakt | GalvanoTrack - Demo anfragen",
-  description: "Kontaktieren Sie uns für eine kostenlose Demo von GalvanoTrack. Wir beraten Sie gerne zu unserer Galvanik Software.",
-  keywords: ["Kontakt GalvanoTrack", "Demo Galvanik Software", "Beratung Rückverfolgbarkeit", "Galvanik Software Test"],
+  title: "Kontakt & Demo – GalvanoTrack Galvanik Software",
+  description:
+    "Kostenlose Demo von GalvanoTrack anfordern: 30 Minuten Live-Präsentation unserer Galvanik Software. Wir melden uns innerhalb von 24 Stunden.",
+  keywords: [
+    "Kontakt GalvanoTrack",
+    "Demo Galvanik Software",
+    "Beratung Rückverfolgbarkeit",
+    "Galvanik Software Test",
+  ],
+  alternates: {
+    canonical: `${siteConfig.url}/kontakt`,
+  },
   openGraph: {
-    title: "Kontakt | GalvanoTrack",
-    description: "Kontaktieren Sie uns für eine kostenlose Demo.",
+    title: "Kontakt & Demo – GalvanoTrack Galvanik Software",
+    description:
+      "Kostenlose Demo anfordern – 30 Minuten Live-Präsentation unserer Galvanik Software.",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+    url: `${siteConfig.url}/kontakt`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kontakt & Demo – GalvanoTrack",
+    description: "Kostenlose Demo von GalvanoTrack anfordern.",
   },
 };
+
+const breadcrumbs = [{ name: "Kontakt", href: "/kontakt" }];
 
 export default function KontaktPage() {
   return (
     <div className="min-h-screen bg-background">
-      <SEONavigation />
+      <WebPageSchema
+        name="Kontakt & Demo – GalvanoTrack Galvanik Software"
+        description="Kostenlose Demo von GalvanoTrack anfordern. Wir melden uns innerhalb von 24 Stunden."
+        url="/kontakt"
+        breadcrumb={breadcrumbs}
+      />
+      <Navbar />
       <main>
+        <div className="pt-20 pb-2 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={breadcrumbs} />
+        </div>
         {/* Hero Section */}
-        <section className="relative min-h-[50vh] flex items-center pt-16 overflow-hidden">
+        <section className="relative min-h-[50vh] flex items-center pt-4 overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-30" />
           <div className="absolute inset-0 bg-radial-glow" />
 
@@ -38,13 +85,13 @@ export default function KontaktPage() {
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                Kostenlose{" "}
-                <span className="text-gradient">Demo</span> anfordern
+                Kostenlose <span className="text-gradient">Demo</span> anfordern
               </h1>
 
               <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Vereinbaren Sie einen Termin für eine 30-minütige Live-Präsentation.
-                Wir zeigen Ihnen, wie GalvanoTrack Ihre Galvanik-Prozesse optimiert.
+                Vereinbaren Sie einen Termin für eine 30-minütige
+                Live-Präsentation. Wir zeigen Ihnen, wie GalvanoTrack Ihre
+                Galvanik-Prozesse optimiert.
               </p>
             </div>
           </div>
@@ -60,7 +107,8 @@ export default function KontaktPage() {
                   <CardHeader>
                     <CardTitle>Demo anfragen</CardTitle>
                     <CardDescription>
-                      Füllen Sie das Formular aus und wir melden uns innerhalb von 24 Stunden.
+                      Füllen Sie das Formular aus und wir melden uns innerhalb
+                      von 24 Stunden.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -81,15 +129,27 @@ export default function KontaktPage() {
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="email">E-Mail</Label>
-                        <Input id="email" type="email" placeholder="max@mustermann.de" />
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="max@mustermann.de"
+                        />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="phone">Telefon (optional)</Label>
-                        <Input id="phone" type="tel" placeholder="+49 123 456789" />
+                        <Input
+                          id="phone"
+                          type="tel"
+                          placeholder="+49 123 456789"
+                        />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="employees">Anzahl Mitarbeiter</Label>
-                        <Input id="employees" type="number" placeholder="z.B. 25" />
+                        <Input
+                          id="employees"
+                          type="number"
+                          placeholder="z.B. 25"
+                        />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="message">Nachricht</Label>
@@ -112,7 +172,9 @@ export default function KontaktPage() {
               <div>
                 <div className="space-y-8">
                   <div>
-                    <h2 className="text-2xl font-bold mb-4">So erreichen Sie uns</h2>
+                    <h2 className="text-2xl font-bold mb-4">
+                      So erreichen Sie uns
+                    </h2>
                     <p className="text-muted-foreground">
                       Haben Sie Fragen? Wir helfen Ihnen gerne weiter.
                     </p>
@@ -125,7 +187,9 @@ export default function KontaktPage() {
                       </div>
                       <div>
                         <h3 className="font-semibold mb-1">E-Mail</h3>
-                        <p className="text-muted-foreground">info@galvanotrack.de</p>
+                        <p className="text-muted-foreground">
+                          info@galvanotrack.de
+                        </p>
                       </div>
                     </div>
 
@@ -135,8 +199,12 @@ export default function KontaktPage() {
                       </div>
                       <div>
                         <h3 className="font-semibold mb-1">Telefon</h3>
-                        <p className="text-muted-foreground">+49 (0) 123 456789</p>
-                        <p className="text-sm text-muted-foreground">Mo-Fr: 9:00 - 17:00 Uhr</p>
+                        <p className="text-muted-foreground">
+                          +49 (0) 123 456789
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          Mo-Fr: 9:00 - 17:00 Uhr
+                        </p>
                       </div>
                     </div>
 
@@ -147,8 +215,10 @@ export default function KontaktPage() {
                       <div>
                         <h3 className="font-semibold mb-1">Adresse</h3>
                         <p className="text-muted-foreground">
-                          Musterstraße 123<br />
-                          12345 Musterstadt<br />
+                          Musterstraße 123
+                          <br />
+                          12345 Musterstadt
+                          <br />
                           Deutschland
                         </p>
                       </div>
@@ -161,7 +231,8 @@ export default function KontaktPage() {
                       <div>
                         <h3 className="font-semibold mb-1">Öffnungszeiten</h3>
                         <p className="text-muted-foreground">
-                          Mo-Do: 9:00 - 17:00 Uhr<br />
+                          Mo-Do: 9:00 - 17:00 Uhr
+                          <br />
                           Fr: 9:00 - 15:00 Uhr
                         </p>
                       </div>
@@ -169,23 +240,33 @@ export default function KontaktPage() {
                   </div>
 
                   <div className="pt-8 border-t border-border">
-                    <h3 className="font-semibold mb-4">Was passiert nach der Demo-Anfrage?</h3>
+                    <h3 className="font-semibold mb-4">
+                      Was passiert nach der Demo-Anfrage?
+                    </h3>
                     <ul className="space-y-3">
                       <li className="flex items-center gap-3">
                         <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">Wir melden uns innerhalb von 24 Stunden</span>
+                        <span className="text-sm text-muted-foreground">
+                          Wir melden uns innerhalb von 24 Stunden
+                        </span>
                       </li>
                       <li className="flex items-center gap-3">
                         <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">30-minütiger Live-Termin nach Wahl</span>
+                        <span className="text-sm text-muted-foreground">
+                          30-minütiger Live-Termin nach Wahl
+                        </span>
                       </li>
                       <li className="flex items-center gap-3">
                         <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">14 Tage kostenloser Testzugang</span>
+                        <span className="text-sm text-muted-foreground">
+                          14 Tage kostenloser Testzugang
+                        </span>
                       </li>
                       <li className="flex items-center gap-3">
                         <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">Keine Verpflichtung</span>
+                        <span className="text-sm text-muted-foreground">
+                          Keine Verpflichtung
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -209,16 +290,19 @@ export default function KontaktPage() {
               {[
                 {
                   title: "Persönlich",
-                  description: "Individuelle Präsentation zugeschnitten auf Ihre Anforderungen."
+                  description:
+                    "Individuelle Präsentation zugeschnitten auf Ihre Anforderungen.",
                 },
                 {
                   title: "Unverbindlich",
-                  description: "Keine Verpflichtung. Sie entscheiden, ob GalvanoTrack passt."
+                  description:
+                    "Keine Verpflichtung. Sie entscheiden, ob GalvanoTrack passt.",
                 },
                 {
                   title: "Kostenlos",
-                  description: "Die Demo ist kostenlos. Keine versteckten Kosten."
-                }
+                  description:
+                    "Die Demo ist kostenlos. Keine versteckten Kosten.",
+                },
               ].map((item, index) => (
                 <Card key={index} className="card-metallic h-full">
                   <CardHeader>
@@ -245,8 +329,11 @@ export default function KontaktPage() {
               {[
                 { href: "/galvanik", label: "Galvanik Software" },
                 { href: "/preise", label: "Preise" },
-                { href: "/digitaler-laufzettel", label: "Digitaler Laufzettel" },
-                { href: "/iso-9001-galvanik", label: "ISO 9001" }
+                {
+                  href: "/digitaler-laufzettel",
+                  label: "Digitaler Laufzettel",
+                },
+                { href: "/iso-9001-galvanik", label: "ISO 9001" },
               ].map((link, index) => (
                 <Link key={index} href={link.href}>
                   <Card className="card-metallic h-full hover:border-primary/50 transition-colors cursor-pointer">
@@ -261,7 +348,7 @@ export default function KontaktPage() {
           </div>
         </section>
       </main>
-      <SEOFooter />
+      <Footer />
     </div>
   );
 }
